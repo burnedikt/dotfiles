@@ -2,6 +2,10 @@
 
 These dotfiles are most easily managed using a dotfile manager like [rcm](https://github.com/thoughtbot/rcm).
 
+For simplicity's sake, we'll just use GNU Stow which will also be installed automatically.
+
+To take the quick route, just run `./install.sh` to get everything setup.
+
 ## Manual Labor
 
 ### Sublime Text Icon
