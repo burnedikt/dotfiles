@@ -1,0 +1,34 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Babel",
+		"Better CoffeeScript",
+		"BracketHighlighter",
+		"DocBlockr",
+		"Dockerfile Syntax Highlighting",
+		"EditorConfig",
+		"EsFormatter",
+		"GitGutter",
+		"HTML-CSS-JS Prettify",
+		"Jade",
+		"LESS",
+		"Markdown Preview",
+		"Oceanic Next Color Scheme",
+		"Package Control",
+		"PHP-Twig",
+		"SCSS",
+		"SideBarEnhancements",
+		"Stylus",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-coffee",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-jscs",
+		"Text Pastry",
+		"TypeScript"
+	]
+}
