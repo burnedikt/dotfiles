@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This install script is based on [PaulMillr's](https://github.com/paulmillr) excellent install script
 
@@ -44,7 +44,7 @@ if [[ `uname` == 'Darwin' ]]; then
   done
 
   echo 'Tweaking OS X...'
-    source 'etc/osx.sh'
+    source "$(pwd)/osx-defaults.sh"
 
   # http://github.com/sindresorhus/quick-look-plugins
   echo 'Installing Quick Look plugins...'
