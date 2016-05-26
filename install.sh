@@ -47,8 +47,6 @@ if [[ `uname` == 'Darwin' ]]; then
     source "$(pwd)/osx-defaults.sh"
 
   # http://github.com/sindresorhus/quick-look-plugins
-  echo 'Installing Quick Look plugins...'
-    brew tap phinze/homebrew-cask
-    brew install caskroom/cask/brew-cask
-    brew cask install suspicious-package quicklook-json qlmarkdown qlstephen qlcolorcode
+  echo 'Installing Applications with Homebrew ...'
+  brew bundle
 fi
