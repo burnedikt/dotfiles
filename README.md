@@ -4,13 +4,16 @@ These dotfiles work for me. That doesn't neccessarily mean they also work for yo
 
 # Installation
 
-These dotfiles are most easily managed using a dotfile manager like [rcm](https://github.com/thoughtbot/rcm).
-
-For simplicity's sake, we'll just use GNU Stow which will also be installed automatically.
+For handling these dotfiles, we'll use GNU Stow which will also be installed automatically, if you run the install script.
 
 To take the quick route, just run `./install.sh` to get everything setup.
 
 ## Manual Labor
+
+### Powerline Fonts
+
+To have powerline enabled fonts that support a variety of icons in your terminal, make sure to go to run `fonts/install.sh`.
+Then use one of the provided fonts and select it in iTerm / Terminal.app.
 
 ### Sublime Text Icon
 
