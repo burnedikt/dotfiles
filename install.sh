@@ -12,6 +12,9 @@ if [[ `uname` == 'Darwin' ]]; then
       brew update
   fi
 
+  # update all submodules
+  git submodule update --init --recursive .
+
   # install the powerline fonts
   echo 'Installing Powerline fonts ...'
     source ./fonts/install.sh
