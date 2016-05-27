@@ -1,0 +1,50 @@
+#!/usr/bin/env zsh
+
+# Only including a shebang to trigger Sublime Text to use shell syntax highlighting
+#
+# Copyright 2006-2015 Joseph Block <jpb@unixorn.net>
+#
+# BSD licensed, see LICENSE.txt
+
+# first of all source the default aliases
+source ~/.aliases
+
+# do OS X specific things
+alias eject="diskutil eject"
+alias flushdns="dscacheutil -flushcache"
+alias killSS='kill -9 $(ps ww |grep ScreenSaverEngine |grep -v grep |awk "{print $1}")'
+alias l-d="ls -lFaGd"
+alias l-h="ls -laFGh"
+alias l-l="ls -laFG"
+alias l="ls -laFG"
+alias ll="ls -lFa | TERM=vt100 less"
+
+# `wifi on` to turn wifi on, and `wifi off` to turn it off
+alias wifi="networksetup -setairportpower $(networksetup -listallhardwareports | grep -A 2 'Hardware Port: Wi-Fi' | grep 'Device:' | awk '{print $2}')"
+
+# Helpers for manipulating the OSX clipboard
+alias gpaste="pbpaste | perl -pe 's/\r\n|\r/\n/g'"
+alias pbconvert="pbpaste | perl -pe 's/\r\n|\r/\n/g' | pbcopy"
+alias pbsort="pbpaste | sort | pbcopy"
+
+# Sublime
+alias s="subl"
+
+# Sound.
+alias stfu="osascript -e 'set volume output muted true'"
+alias mute="osascript -e 'set volume output muted true'"
+alias unmute="osascript -e 'set volume output muted false'"
+
+# Airplay sometimes craps out, add helper to kick it
+function fix_airplay {
+  sudo kill $(ps -ax | grep '/usr/sbin/coreaudiod' | awk '{print $1}')
+}
+
+# Show laptop's IP addresses
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+alias reattach="screen -r"
+
+# Strip color codes from commands that insist on spewing them so we can
+# pipe them into files cleanly
+alias stripcolors='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"'

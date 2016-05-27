@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# just load the functions file
+source ~/.functions
