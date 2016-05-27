@@ -6,6 +6,4 @@
 
 echo -en "\r\033[K > .zshenv start"
 
-source ~/.env
-
 echo -en "\r\033[K > .zshenv end"

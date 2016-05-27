@@ -25,6 +25,9 @@ unsetopt correctall
 # Base PATH
 PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 
+# environment variables
+source ~/.env
+
 # Conditional PATH additions
 for path_candidate in /opt/local/sbin \
   /Applications/Xcode.app/Contents/Developer/usr/bin \
@@ -67,7 +70,7 @@ fi
 # Now that we have $PATH set up and ssh keys loaded, configure zgen.
 
 # load zgen
-source "${HOME}/.zgen/zgen.zsh"
+source "${HOME}/zgen/zgen.zsh"
 # end zgen
 
 # set some history options
@@ -192,6 +195,6 @@ dedupe_path() {
   export PATH=${(j+:+)result}
 }
 
-dedupe_path
+# dedupe_path
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV"
