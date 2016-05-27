@@ -67,4 +67,6 @@ if [[ `uname` == 'Darwin' ]]; then
   # http://github.com/sindresorhus/quick-look-plugins
   echo 'Installing Applications with Homebrew ...'
     brew bundle
+else
+  echo 'The installer currently only supports Mac OS X'
 fi
