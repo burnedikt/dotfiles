@@ -1,0 +1,10 @@
+{
+	"extensions":
+	[
+		"markdown",
+		"mdown",
+		"markdn",
+		"md"
+	],
+  "color_scheme": "Packages/MarkdownLight/MarkdownDark.tmTheme"
+}
