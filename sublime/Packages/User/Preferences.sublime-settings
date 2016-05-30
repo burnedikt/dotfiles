@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/MarkdownDark (SL).tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Oceanic Next (SL).tmTheme",
 	"enable_hexadecimal_encoding": false,
 	"file_exclude_patterns":
 	[
@@ -34,6 +34,7 @@
 		"node_modules",
 		"bower_components"
 	],
+	"font_face": "Hack",
 	"font_size": 12,
 	"ignored_packages":
 	[
@@ -51,10 +52,11 @@
 	"preview_on_click": false,
 	"rulers":
 	[
+		80,
 		120
 	],
 	"tab_size": 2,
-	"theme": "Oceanic Next.sublime-theme",
+	"theme": "Spacegray.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"typescript_plugin_tsc_version": "1.7.3"
