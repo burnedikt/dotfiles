@@ -67,6 +67,9 @@ load-starter-plugin-list() {
 
   zgen load chrissicool/zsh-256color
 
+  # ZSH auto env
+  zgen load Tarrasch/zsh-autoenv
+
   # Load more completion files for zsh from the zsh-lovers github repo
   zgen load zsh-users/zsh-completions src
 
