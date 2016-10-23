@@ -2,8 +2,6 @@
 
 # Taken from https://github.com/unixorn/zsh-quickstart-kit
 
-source ~/zgen/zgen.zsh
-
 load-starter-plugin-list() {
   echo "creating a zgen save"
   ZGEN_LOADED=()

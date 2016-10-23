@@ -33,9 +33,6 @@ if [[ `uname` == 'Darwin' ]]; then
   echo 'Symlinking zsh dotfiles'
     stow -v -t ~ -d zsh .
 
-  # setup zsh with all kinds of plugins using zgen
-   source ~/.zgen-setup
-
   # symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
   echo "Updating Sublime Text 3 Configuration"
 

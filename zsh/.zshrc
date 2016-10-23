@@ -71,6 +71,8 @@ fi
 
 # load zgen
 source "${HOME}/zgen/zgen.zsh"
+# check / rebuild install script
+source "${HOME}/.zgen-setup"
 # end zgen
 
 # set some history options
@@ -122,6 +124,8 @@ bindkey -M isearch " " magic-space # normal space during searches
 # Stuff only tested on zsh, or explicitly zsh-specific
 if [ -r ~/.zsh_aliases ]; then
   source ~/.zsh_aliases
+else
+  echo "Could not read zsh_aliases file ... Is it actually located under ~/.zsh_aliases?"
 fi
 
 if [ -r ~/.zsh_functions ]; then
@@ -135,41 +139,11 @@ if [ -f ~/.aws/aws_variables ]; then
   source ~/.aws/aws_variables
 fi
 
-# deal with screen, if we're using it - courtesy MacOSXHints.com
-# Login greeting ------------------
-if [ "$TERM" = "screen" -a ! "$SHOWED_SCREEN_MESSAGE" = "true" ]; then
-  detached_screens=$(screen -list | grep Detached)
-  if [ ! -z "$detached_screens" ]; then
-    echo "+---------------------------------------+"
-    echo "| Detached screens are available:       |"
-    echo "$detached_screens"
-    echo "+---------------------------------------+"
-  fi
-fi
-
-if [ -f /usr/local/etc/grc.bashrc ]; then
-  source "$(brew --prefix)/etc/grc.bashrc"
-
-  function ping5(){
-    grc --color=auto ping -c 5 "$@"
-  }
-else
-  alias ping5='ping -c 5'
-fi
-
 # Speed up autocomplete, force prefix mapping
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==34=34}:${(s.:.)LS_COLORS}")';
-
-# Load any custom zsh completions we've installed
-if [ -d ~/.zsh-completions ]; then
-  for completion in ~/.zsh-completions/*
-  do
-    source "$completion"
-  done
-fi
 
 echo
 echo "Current SSH Keys:"
