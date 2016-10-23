@@ -5,13 +5,13 @@
 	],
 	"installed_packages":
 	[
+		"AutoDocstring",
 		"Babel",
 		"Better CoffeeScript",
 		"BracketHighlighter",
 		"DocBlockr",
 		"Dockerfile Syntax Highlighting",
 		"EditorConfig",
-		"EsFormatter",
 		"Git Config",
 		"GitGutter",
 		"HTML-CSS-JS Prettify",
@@ -20,6 +20,7 @@
 		"LESS",
 		"Markdown Preview",
 		"MarkdownLight",
+		"nginx",
 		"Oceanic Next Color Scheme",
 		"Package Control",
 		"PHP-Twig",

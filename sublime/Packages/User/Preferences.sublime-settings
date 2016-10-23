@@ -30,7 +30,6 @@
 		".hg",
 		"CVS",
 		"deprecated",
-		"dist",
 		"node_modules",
 		"bower_components"
 	],

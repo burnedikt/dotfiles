@@ -61,6 +61,25 @@
 				[
 				],
 				"standard": "PSR2"
+			},
+			"pylint":
+			{
+				"@disable": false,
+				"args":
+				[
+				],
+				"disable": "",
+				"enable": "",
+				"excludes":
+				[
+				],
+				"paths":
+				[
+					"/Users/benediktreiser/Development/vshowroom-asset-backend/backend",
+					"/Users/benediktreiser/Development/vshowroom-asset-backend/backend/venv/lib/python3.5/site-packages"
+				],
+				"rcfile": "",
+				"show-codes": false
 			}
 		},
 		"mark_style": "outline",
