@@ -70,11 +70,6 @@ if [[ `uname` == 'Darwin' ]]; then
   echo 'Installing Applications with Homebrew ...'
     brew bundle
 
-  # now that go is installed, install dlite for docker on Mac OS X
-  echo 'Installing dlite for docker to avoid using docker-machine. You will be prompted for your sudo password'
-  go get github.com/nlf/dlite
-  sudo dlite install
-
 else
   echo 'The installer currently only supports Mac OS X'
 fi
