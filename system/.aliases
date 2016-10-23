@@ -13,12 +13,9 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Development"
 
-# Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-  colorflag="--color"
-else # OS X `ls`
-  colorflag="-G"
-fi
+# we are on OS X
+echo "Using OS X ls command"
+colorflag="-G"
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
