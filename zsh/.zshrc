@@ -1,4 +1,15 @@
 #!/usr/bin/env zsh
+# profile startup time, turn on by setting to true
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/tmp/startlog.$$
+    setopt xtrace prompt_subst
+fi
+
+# use sandboxing script to lazy load slow scripts
+source ~/sandboxd
 
 # Copyright 2006-2015 Joseph Block <jpb@apesseekingknowledge.net>
 #
@@ -172,3 +183,9 @@ dedupe_path() {
 # dedupe_path
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV"
+
+# disable profiler
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
+fi
