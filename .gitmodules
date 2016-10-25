@@ -4,3 +4,6 @@
 [submodule "fonts"]
 	path = fonts
 	url = git@github.com:powerline/fonts.git
+[submodule "sandboxd"]
+	path = sandboxd
+	url = git@github.com:benvan/sandboxd.git

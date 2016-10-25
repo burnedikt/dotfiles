@@ -29,9 +29,14 @@ if [[ `uname` == 'Darwin' ]]; then
 
   # now symlink the configuration files / dotfiles for zsh to our home folder
   echo 'Symlinking global dotfiles'
-    stow -v -t ~ -d system .
+    # symlink all filds from system folder to home folder
+    stow --verbose -t ~ system
   echo 'Symlinking zsh dotfiles'
-    stow -v -t ~ -d zsh .
+    # symlink all filds from zsh folder to home folder
+    stow --verbose -t ~ zsh
+  echo 'Symlinking sandboxed script'
+    # symlink all filds from sandboxd folder to home folder
+    stow --verbose -t ~ --ignore=.example sandboxd
 
   # symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
   echo "Updating Sublime Text 3 Configuration"
