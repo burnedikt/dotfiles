@@ -8,9 +8,6 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     setopt xtrace prompt_subst
 fi
 
-# use sandboxing script to lazy load slow scripts
-source ~/sandboxd
-
 # Copyright 2006-2015 Joseph Block <jpb@apesseekingknowledge.net>
 #
 # BSD licensed, see LICENSE.txt
@@ -38,6 +35,9 @@ PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 
 # environment variables
 source ~/.env
+
+# use sandboxing script to lazy load slow scripts
+source ~/sandboxd
 
 # Conditional PATH additions
 for path_candidate in /opt/local/sbin \
