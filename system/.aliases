@@ -14,8 +14,29 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/Development"
 
 # we are on OS X
-echo "Using OS X ls command"
+platform='unknown'
+unamestr=`uname | awk '{print tolower($0)}'`
+
+if [[ "$unamestr" == 'linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'freebasd' ]]; then
+   platform='freebsd'
+elif [[ "$unamestr" == 'darwin' ]]; then
+   platform='freebsd'
+elif [[ "$unamestr" == *'mingw'* ]]; then
+   platform='mingw'
+fi
+
+echo "We are on platform ${platform}"
+
 colorflag="-G"
+if [[ $platform == 'linux' ]]; then
+   colorflag='--color=auto'
+elif [[ $platform == 'freebsd' ]]; then
+   colorflag="-G"
+elif [[ $platform == 'mingw' ]]; then
+   colorflag='--color=auto'
+fi
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
