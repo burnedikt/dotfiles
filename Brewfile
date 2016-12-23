@@ -26,6 +26,7 @@ brew 'spaceman-diff'
 brew 'spark'
 brew 'unrar'
 brew 'wget'
+brew 'socat'
 
 cask 'docker'
 cask 'atom'

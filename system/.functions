@@ -69,3 +69,6 @@ function transfer() {
     rm -f $tmpfile
 }
 
+function dockerapiproxy() {
+    socat TCP-LISTEN:2376,reuseaddr,fork,bind=localhost UNIX-CONNECT:/var/run/docker.sock
+}
