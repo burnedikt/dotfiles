@@ -27,8 +27,6 @@ elif [[ "$unamestr" == *'mingw'* ]]; then
    platform='mingw'
 fi
 
-echo "We are on platform ${platform}"
-
 colorflag="-G"
 if [[ $platform == 'linux' ]]; then
    colorflag='--color=auto'
