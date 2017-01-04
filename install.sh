@@ -1,77 +1,55 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-# This install script is based on [PaulMillr's](https://github.com/paulmillr) excellent install script
+# load installation helpers
+source ./install/helpers.sh
+# find out which platform we're running on
+_platform=`platform`
 
-# check if brew is installed already, if it isn't prompt the user to do so
-# If we on OS X, install homebrew and tweak system a bit.
-if [[ `uname` == 'Darwin' ]]; then
-  which -s brew
-  if [[ $? != 0 ]]; then
-    echo 'Installing Homebrew...'
-      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-      brew update
-  fi
+# update all submodules
+git submodule update --init --recursive .
 
-  # update all submodules
-  git submodule update --init --recursive .
-
-  # install the powerline fonts
-  echo 'Installing Powerline fonts ...'
-    source ./fonts/install.sh
-
-  # now that we're certain we got brew installed, let's install GNU stow
-  # GNU stow is a symlink manager and can help us
-  which -s stow
-  if [[ $? != 0 ]]; then
-    echo 'Installing GNU Stow'
-      brew install stow
-  fi
-
-  # now symlink the configuration files / dotfiles for zsh to our home folder
-  echo 'Symlinking global dotfiles'
-    # symlink all filds from system folder to home folder
-    stow --verbose -t ~ system
-  echo 'Symlinking zsh dotfiles'
-    # symlink all filds from zsh folder to home folder
-    stow --verbose -t ~ zsh
-  echo 'Symlinking sandboxed script'
-    # symlink all filds from sandboxd folder to home folder
-    stow --verbose -t ~ --ignore=.example sandboxd
-
-  # symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
-  echo "Updating Sublime Text 3 Configuration"
-
-  SUBLIMEPATH=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-  CONFIGPATH=$(pwd)/sublime/Packages/User
-  FILES="$CONFIGPATH/*.sublime-settings"
-  for file in $FILES
-  do
-    filename=$(basename "$file")
-    # take action on each file. $f store current file name
-    # check whether the file already exists in the sublime text folder.
-    if [ -L "$SUBLIMEPATH/$filename" ]; then
-      # if it is a symlink, overwrite it
-      echo "Symlink to config file $filename already exists. Overwriting ..."
-    elif [ -f "$SUBLIMEPATH/$filename" ]; then
-      # if it is a file, back it up
-      echo "Config File $filename already exists. Backing up ..."
-      cp "$SUBLIMEPATH/$filename" "$SUBLIMEPATH/$filename.bak"
+# install the powerline fonts
+echo 'Installing Powerline fonts ...'
+  if [[ "$_platform" == "cygwin" ]]; then
+    # check if fonts are maybe already installed
+    font_check_path=`cygpath --windows -a ./install/windows/fonts.ps1`
+    powershell -ExecutionPolicy Bypass "$font_check_path"
+    # exit code will be 1 if not installed yet
+    if [[ $? == 1 ]]; then
+      # if not installed yet, install now
+      font_install_win_path=`cygpath --windows -a ./fonts/install.ps1`
+      powershell -ExecutionPolicy Bypass "$font_install_win_path"
     fi
-    # now replace the file / symlink with a symlink into our repo
-    ln -sf "$file" "$SUBLIMEPATH"
-  done
+  else
+    source ./fonts/install.sh
+  fi
 
+# Package Management
+source ./install/package-management.sh
+
+# now that we're certain we got a package manager installed, let's install GNU stow
+# and use it to symlink all our important dotfiles!
+source ./install/stow.sh
+
+# symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
+source ./install/sublime.sh
+
+if [[ "$_platform" == "macos" ]]; then
   echo "Do you wish to install sensible defaults for OSX (this might take some time)?"
-  select yn in "Yes" "No"; do
-      case $yn in
-          Yes ) echo 'Tweaking OS X...'; source "$(pwd)/osx-defaults.sh" break;;
-          No ) echo 'Not tweaking OS X. Just re-run install.sh if you change your mind'; break;;
-      esac
-  done
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) echo 'Tweaking OS X...'; source "$(pwd)/osx-defaults.sh" break;;
+            No ) echo 'Not tweaking OS X. Just re-run install.sh if you change your mind'; break;;
+        esac
+    done
+fi
 
-  echo 'Installing Applications with Homebrew ...'
-    brew bundle
+echo 'Installing Applications with Package manager ...'
 
+if [[ "$_platform" == "cygwin" ]]; then
+  pact install stow
+elif [[ "$_platform" == "macos" ]]; then
+  cd ./install/macos/ && brew bundle
 else
-  echo 'The installer currently only supports Mac OS X'
+  echo 'Your current platform is unsupported. Please manually install GNU stow before proceeding'
 fi

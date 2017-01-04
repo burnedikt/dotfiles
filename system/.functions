@@ -69,6 +69,8 @@ function transfer() {
     rm -f $tmpfile
 }
 
+# proxy from unix:// file socket to a tcp socket listening on port 2376
+# required on mac to allow communicating with the docker api via TCP
 function dockerapiproxy() {
     socat TCP-LISTEN:2376,reuseaddr,fork,bind=localhost UNIX-CONNECT:/var/run/docker.sock
 }
