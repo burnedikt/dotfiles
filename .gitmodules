@@ -7,3 +7,6 @@
 [submodule "sandboxd"]
 	path = sandboxd
 	url = git@github.com:benvan/sandboxd.git
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot

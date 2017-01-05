@@ -1,0 +1,22 @@
+[user]
+	name = Benedikt Reiser
+	email = benedikt.reiser@gmail.com
+[core]
+	editor = code -n -w
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[credential]
+	helper = wincred
+[commit]
+	# https://help.github.com/articles/signing-commits-using-gpg/
+	gpgsign = true
