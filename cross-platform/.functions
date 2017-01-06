@@ -15,7 +15,6 @@ function httpserver() {
 # Authors:
 #   Remco Verhoef <remco@dutchcoders.io>
 #
-
 curl --version 2>&1 > /dev/null
 if [ $? -ne 0 ]; then
   echo "Could not find curl."
@@ -67,10 +66,4 @@ function transfer() {
 
     # cleanup
     rm -f $tmpfile
-}
-
-# proxy from unix:// file socket to a tcp socket listening on port 2376
-# required on mac to allow communicating with the docker api via TCP
-function dockerapiproxy() {
-    socat TCP-LISTEN:2376,reuseaddr,fork,bind=localhost UNIX-CONNECT:/var/run/docker.sock
 }
