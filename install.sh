@@ -29,24 +29,34 @@ fi
 
 # Symlink / Dotfile Management
 info "$(printf "Taking care of dotfiles through %b%s%b" $light_green "symlinking" $reset_color)"
-if [[ -f "./${pf}/bootstrap/symlinks.sh" ]]; then
-  local HOME=~/
-  local _OSTYPE="$pf"
-
+if [[ -f "./${pf}/bootstrap/dotfiles.sh" ]]; then
   info "$(printf "Installing dotfiles to %b\$HOME%b=%b%s%b for %b\$OSTYPE%b=%b%s%b" \
       $light_red $reset_color \
       $green "$HOME" $reset_color \
       $light_red $reset_color \
       $light_yellow "$pf" $reset_color)"
-  source "./${pf}/bootstrap/symlinks.sh"
+  source "./${pf}/bootstrap/dotfiles.sh"
 fi
-exit
 
 # symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
-source ./install/sublime.sh
+if [[ -f "./${pf}/bootstrap/sublime.sh" ]]; then
+  info "$(printf "Synchronizing %b%s%b specific settings" $light_green "Sublime Text 3" $reset_color)"
+  source ./install/sublime.sh
+fi
 
 # run any platform specific bootstrap scripts (e.g. osx-defaults on macos)
 if [[ -f "./${pf}/bootstrap/platform.sh" ]]; then
   info "$(printf "Running platform-specific scripts for %b%s%b" $light_green $pf $reset_color)"
   source "./${pf}/bootstrap/platform.sh"
 fi
+
+info "Updating bash / zsh configuration"
+if [[ "$pf" == 'windows' ]]; then
+  source $HOME/.bashrc
+elif [[ "$pf" == 'macos' ]]; then
+  source $HOME/.zshrc
+else
+  fail "Platform $pf not supported"
+fi
+
+success "All done"

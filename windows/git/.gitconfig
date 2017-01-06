@@ -14,4 +14,4 @@
 	helper = wincred
 [commit]
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	gpgsign = false

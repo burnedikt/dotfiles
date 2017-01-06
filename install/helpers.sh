@@ -71,8 +71,9 @@ symlink() {
     if [[ "$overwrite_all" == "false" ]] && \
        [[ "$backup_all" == "false" ]] && \
        [[ "$skip_all" == "false" ]]; then
-      local current_target="$(readlink_e "$dst")"
-
+      local current_target="$(readlink "$dst")"
+      echo $current_target
+      echo $src
       if [[ "$current_target" == "$src" ]]; then
         skip=true;
       else
@@ -129,7 +130,29 @@ symlink() {
     mkdir -p "$(dirname "$dst")"
     # Create native symlinks on Windows.
     CYGWIN=winsymlinks:nativestrict ln -s "$src" "$dst"
-
-    success "$(printf "Linked %b%s%b to %b%s%b" $green "$src" $reset_color $green "$dst" $reset_color)"
+    if [[ $? == 0 ]]; then
+      success "$(printf "Linked %b%s%b to %b%s%b" $green "$src" $reset_color $green "$dst" $reset_color)"
+    else
+      warn "$(printf "Failed linking %b%s%b to %b%s%b" $green "$src" $reset_color $green "$dst" $reset_color)"
+    fi
   fi
+}
+
+link_dotfiles_from_folder () {
+  # enable globs for dotfiles (with leading .)
+  shopt -s dotglob
+  # get folder
+  local base_folder=$1
+  if [[ -d $base_folder ]]; then
+    for src in ${base_folder%/}/.*
+    do
+      if [[ -f $src ]]; then
+        symlink $src $HOME/$(basename $src)
+      fi
+    done
+  else
+    fail "$(printf "Folder %b%s%b does not exist. No dotfiles could be linked" $green "$base_folder" $reset_color)"
+  fi
+  # disable globs for dotfiles (with leading .)
+  shopt -u dotglob
 }
