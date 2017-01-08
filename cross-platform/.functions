@@ -228,3 +228,7 @@ function transfer() {
     # cleanup
     rm -f $tmpfile
 }
+
+win2unix () {
+  echo "/$1" | sed 's/\\/\//g' | sed 's/://' | sed 's/ /\\ /'
+}
