@@ -147,6 +147,7 @@ link_dotfiles_from_folder () {
   if [[ -d $base_folder ]]; then
     for src in ${base_folder%/}/.*
     do
+      # if it's a file, symlink it
       if [[ -f $src ]]; then
         symlink $src $HOME/$(basename $src)
       fi

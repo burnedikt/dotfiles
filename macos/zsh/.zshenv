@@ -4,7 +4,7 @@
 # the shell is attached to a tty. This file will always be sourced.
 # see https://wiki.archlinux.org/index.php/zsh
 
-echo -en "\r\033[K > .zshenv start"
+#echo -en "\r\033[K > .zshenv start"
 
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
 export PYTHONIOENCODING='UTF-8';
@@ -30,4 +30,4 @@ export PATH=$ANACONDA_DIR:$PATH:$NVM_DIR:$GOPATH/bin:/usr/local/opt/go/libexec/b
 # Open ssl stuff
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib
 
-echo -en "\r\033[K > .zshenv end"
+#echo -en "\r\033[K > .zshenv end"

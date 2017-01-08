@@ -8,10 +8,6 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     setopt xtrace prompt_subst
 fi
 
-# Copyright 2006-2015 Joseph Block <jpb@apesseekingknowledge.net>
-#
-# BSD licensed, see LICENSE.txt
-
 # Set this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -34,10 +30,10 @@ unsetopt correctall
 PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 
 # environment variables
-source ~/.env
+source ~/.zshenv
 
 # use sandboxing script to lazy load slow scripts
-source ~/sandboxd
+source ~/.sandboxd
 
 # Conditional PATH additions
 for path_candidate in /opt/local/sbin \
@@ -81,7 +77,7 @@ fi
 # Now that we have $PATH set up and ssh keys loaded, configure zgen.
 
 # load zgen
-source "${HOME}/zgen/zgen.zsh"
+source "${HOME}/.zgen/zgen.zsh"
 # check / rebuild install script
 source "${HOME}/.zgen-setup"
 # end zgen
