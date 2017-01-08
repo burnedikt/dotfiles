@@ -2,7 +2,7 @@
 
 DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # load installation helpers
-source $DOTFILES_ROOT/helpers.sh
+source $DOTFILES_ROOT/cross-platform/.functions
 # find out which platform we're running on
 pf=`platforms`
 
@@ -60,4 +60,4 @@ else
   fail "Platform $pf not supported"
 fi
 
-success "All done"
+success "Bootstrap done"

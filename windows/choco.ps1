@@ -13,13 +13,6 @@ $chocos = Get-Content "$PSScriptRoot\Chocofile"
 ForEach( $choco in $chocos ) {
   choco install -y --ignore-checksums $choco
 }
-# afterwards, start git-bash / mysis will automatically open
-$git_bash_path = "$env:programfiles\Git\git-bash.exe"
-if (Test-Path $git_bash_path) {
-  & $git_bash_path
-} else {
-  Write-Error "Git-Bash has apparently not been installed correctly"
-}
 # ... and we can proceed with the installation there
 Write-Output "Chocolatey and packages installation finished. Everything else can now be done from within babun / cygwin."
 # leave

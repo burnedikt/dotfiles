@@ -13,13 +13,13 @@ For handling these dotfiles, we'll use GNU Stow which will also be installed aut
 
 ### macOS
 
-To take the quick route, just run `./install.sh` to get everything setup.
+To take the quick route, just run `. ./bootstrap` to get everything setup.
 
 ### Windows
 
-On Windows, fire up an elevated Powershell (run as admin), cd to the dotfiles folder and execute the `install.ps1`
-powershell script, by executing `.\install.ps1`. After the pre-requisites (git-bash, ...) have been installed,
-open up git-bash and cd into the dotfiles folder. Here, just run `./install.sh` as before.
+On Windows, fire up an **elevated Powershell** (run as admin), cd to the dotfiles folder and execute the `bootstrap.ps1`
+powershell script, by executing `.\bootstrap.ps1`. After the pre-requisites (git-bash, ...) have been installed,
+open up git-bash and cd into the dotfiles folder. Here, just run `. ./bootstrap` as before.
 
 ### Manual Labor
 
