@@ -1,0 +1,17 @@
+[user]
+	name = Benedikt Reiser
+	email = benedikt.reiser@gmail.com
+[core]
+	editor = code -n -w
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+  process = git-lfs filter-process
+	required = true
+[credential]
+	helper = wincred
+[commit]
+	# https://help.github.com/articles/signing-commits-using-gpg/
+	gpgsign = false
