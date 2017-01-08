@@ -42,7 +42,8 @@ fi
 # symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
 if [[ -f "$DOTFILES_ROOT/${pf}/bootstrap/sublime.sh" ]]; then
   info "$(printf "Synchronizing %b%s%b specific settings" $light_green "Sublime Text 3" $reset_color)"
-  source $DOTFILES_ROOT/install/sublime.sh
+  source $DOTFILES_ROOT/${pf}/bootstrap/sublime.sh
+  success "$(printf "%b%s%b settings synchronized" $light_green "Sublime Text 3" $reset_color)"
 fi
 
 # run any platform specific bootstrap scripts (e.g. osx-defaults on macos)

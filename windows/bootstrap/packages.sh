@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # check if choco is installed, if not so, inform the user that he should install it
 res=`which choco &>/dev/null`
 if [[ $? != 0 ]]; then
