@@ -3,7 +3,7 @@
 	email = benedikt.reiser@gmail.com
 [core]
 	excludesfile = /Users/benediktreiser/.gitignore_global
-	editor = s -n -w
+	editor = subl -n -w
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -17,7 +17,11 @@
 	smudge = git lfs smudge %f
 	required = true
 [credential]
+[credential]
 	helper = osxkeychain
+[git "lfs"]
+	concurrenttransfers = 10
+[lfs "transfer"]
+	maxretries = 3
 [commit]
-	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	template = /Users/benediktreiser/.stCommitMsg
