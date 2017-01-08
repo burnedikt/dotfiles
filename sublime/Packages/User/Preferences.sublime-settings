@@ -1,62 +1,20 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/Oceanic Next (SL).tmTheme",
-	"enable_hexadecimal_encoding": false,
-	"file_exclude_patterns":
-	[
-		"*.pyc",
-		"*.pyo",
-		"*.exe",
-		"*.dll",
-		"*.o",
-		"*.a",
-		"*.lib",
-		"*.so",
-		"*.dylib",
-		"*.ncb",
-		"*.sdf",
-		"*.suo",
-		"*.pdb",
-		"*.idb",
-		".DS_Store",
-		"*.class",
-		"*.psd",
-		"*.db",
-		"*.sublime-workspace"
-	],
-	"folder_exclude_patterns":
-	[
-		".svn",
-		".git",
-		".hg",
-		"CVS",
-		"deprecated",
-		"node_modules",
-		"bower_components"
-	],
-	"font_face": "Hack",
-	"font_size": 12,
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+	"font_size": 11,
 	"ignored_packages":
 	[
-		"Bracketeer",
-		"JavaScript",
-		"Markdown",
 		"Vintage"
 	],
 	"index_exclude_patterns":
 	[
-		"*.log",
-		"bower_components",
 		"node_modules"
 	],
-	"preview_on_click": false,
-	"rulers":
-	[
-		80,
-		120
-	],
-	"tab_size": 2,
-	"theme": "Spacegray.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"typescript_plugin_tsc_version": "1.7.3"
+	"material_theme_accent_orange": true,
+	"material_theme_compact_panel": true,
+	"material_theme_compact_sidebar": true,
+	"material_theme_contrast_mode": true,
+	"material_theme_panel_separator": true,
+	"material_theme_small_statusbar": true,
+	"material_theme_small_tab": true,
+	"theme": "Material-Theme.sublime-theme"
 }

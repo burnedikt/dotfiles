@@ -56,6 +56,8 @@ info "Updating bash / zsh configuration"
 if [[ "$pf" == 'windows' ]]; then
   source $HOME/.bashrc
 elif [[ "$pf" == 'macos' ]]; then
+  # reload shell as zsh
+  exec zsh -l
   source $HOME/.zshrc
 else
   fail "Platform $pf not supported"

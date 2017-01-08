@@ -1,26 +1,16 @@
 {
 	"user":
 	{
-		"debug": true,
+		"debug": false,
 		"delay": 0.25,
 		"error_color": "D02000",
-		"gutter_theme": "Packages/SublimeLinter/gutter-themes/Danish Royalty/Danish Royalty.gutter-theme",
+		"gutter_theme": "Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme",
 		"gutter_theme_excludes":
 		[
 		],
 		"lint_mode": "background",
 		"linters":
 		{
-			"coffee":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
 			"eslint":
 			{
 				"@disable": false,
@@ -30,56 +20,6 @@
 				"excludes":
 				[
 				]
-			},
-			"jscs":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"jshint":
-			{
-				"@disable": true,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				]
-			},
-			"phpcs":
-			{
-				"@disable": false,
-				"args":
-				[
-				],
-				"excludes":
-				[
-				],
-				"standard": "PSR2"
-			},
-			"pylint":
-			{
-				"@disable": false,
-				"args":
-				[
-				],
-				"disable": "",
-				"enable": "",
-				"excludes":
-				[
-				],
-				"paths":
-				[
-					"/Users/benediktreiser/Development/vshowroom-asset-backend/backend",
-					"/Users/benediktreiser/Development/vshowroom-asset-backend/backend/venv/lib/python3.5/site-packages"
-				],
-				"rcfile": "",
-				"show-codes": false
 			}
 		},
 		"mark_style": "outline",
@@ -118,8 +58,11 @@
 			"html (django)": "html",
 			"html (rails)": "html",
 			"html 5": "html",
+			"javascript (babel)": "javascript",
+			"magicpython": "python",
 			"php": "html",
-			"python django": "python"
+			"python django": "python",
+			"pythonimproved": "python"
 		},
 		"warning_color": "DDB700",
 		"wrap_find": true
