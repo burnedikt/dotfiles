@@ -13,9 +13,9 @@ success "$(printf "%b%s%b successfully updated" $light_green "Git Submodules" $r
 
 # install the powerline fonts
 info "$(printf "Installing / Checking %b%s%b" $light_green "Powerline Fonts" $reset_color)"
-if [[ "$pf" == 'windows' ]]; then
+if [[ -f "$DOTFILES_ROOT/${pf}/bootstrap/fonts.sh" ]]; then
   # check if fonts are maybe already installed
-  source "$DOTFILES_ROOT/windows/bootstrap/fonts.sh"
+  source "$DOTFILES_ROOT/${pf}/bootstrap/fonts.sh"
 else
   source $DOTFILES_ROOT/fonts/install.sh
 fi
