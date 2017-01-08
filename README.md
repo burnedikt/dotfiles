@@ -13,7 +13,7 @@ For handling these dotfiles, we'll use GNU Stow which will also be installed aut
 
 ### macOS
 
-To take the quick route, just run `. ./bootstrap` to get everything setup.
+To take the quick route, just run `chmod +x ./bootstrap && ./bootstrap` to get everything setup.
 
 ### Windows
 
