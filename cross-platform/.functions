@@ -47,7 +47,7 @@ fail() {
 platforms() {
   case "$OSTYPE" in
     linux*)  printf 'linux';;
-    darwin*) printf 'mac';;
+    darwin*) printf 'macos';;
     msys)    printf 'windows';;
     cygwin)  printf "cygwin";;
     *)       printf "$OSTYPE";;
