@@ -1,9 +1,8 @@
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
-tap 'phinze/homebrew-cask'
+tap 'caskroom/cask'
 
-brew 'caskroom/cask/brew-cask'
 brew 'ack'
 brew 'coreutils'
 brew 'go'

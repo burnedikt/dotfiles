@@ -5,5 +5,7 @@ if [[ $? != 0 ]]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew update
 fi
+# path to the brewfile
+BREWFILE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # install packages now
-brew bundle
+brew bundle --verbose --file=$BREWFILE_DIR/Brewfile
