@@ -132,15 +132,16 @@ bindkey "^ " magic-space           # control-space to bypass completion
 bindkey -M isearch " " magic-space # normal space during searches
 
 # Customize to your needs...
+# source functions
+if [ -r ~/.zsh_functions ]; then
+  source ~/.zsh_functions
+fi
+
 # Stuff only tested on zsh, or explicitly zsh-specific
 if [ -r ~/.zsh_aliases ]; then
   source ~/.zsh_aliases
 else
   echo "Could not read zsh_aliases file ... Is it actually located under ~/.zsh_aliases?"
-fi
-
-if [ -r ~/.zsh_functions ]; then
-  source ~/.zsh_functions
 fi
 
 export LOCATE_PATH=/var/db/locate.database

@@ -6,4 +6,25 @@
 
 echo -en "\r\033[K > .zshenv start"
 
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X';
+
+# use sublime as default editor
+export EDITOR='subl -w'
+
+# path for Go lang packages
+export GOPATH=/usr/local/lib/gocode
+
+# include nvm
+export NVM_DIR="$HOME/.nvm"
+
+# include go
+export PATH=$PATH:$NVM_DIR:$GOPATH/bin:/usr/local/opt/go/libexec/bin
+
+# Open ssl stuff
+export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib
+
 echo -en "\r\033[K > .zshenv end"

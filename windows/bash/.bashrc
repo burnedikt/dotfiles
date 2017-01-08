@@ -1,3 +1,7 @@
+source ~/.functions
+source ~/.aliases
+source ~/.git-aliases
+
 env=~/.ssh/agent.env
 
 agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
@@ -19,7 +23,3 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 unset env
-
-source ~/.aliases
-source ~/.git-aliases
-source ~/.functions
