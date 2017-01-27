@@ -1,7 +1,7 @@
 if (([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") {
   # the above line ensures we're running as admin
   $install_script_path="$PSScriptRoot\windows\choco.ps1"
-  #. "$install_script_path"
+  . "$install_script_path"
   # basic installation is done, everything else will take place in msys
   Write-Output "Successfully checked Chocolatey installation"
   # start git-bash / mysis (if installed)
