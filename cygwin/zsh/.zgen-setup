@@ -47,11 +47,9 @@ load-starter-plugin-list() {
   # Load some oh-my-zsh plugins
   zgen oh-my-zsh plugins/pip
   zgen oh-my-zsh plugins/sudo
-  zgen oh-my-zsh plugins/brew
   zgen oh-my-zsh plugins/colored-man-pages
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh plugins/github
-  zgen oh-my-zsh plugins/osx
   zgen oh-my-zsh plugins/python
   zgen oh-my-zsh plugins/rsync
   zgen oh-my-zsh plugins/screen
@@ -83,9 +81,8 @@ load-starter-plugin-list() {
   # adding a bit of color and some git status information on files and directories
   zgen load rimraf/k
 
-  # Pure theme setup, also needs zsh-async
-  zgen load mafredri/zsh-async
-  zgen load sindresorhus/pure
+  # theme
+  zgen oh-my-zsh themes/ys
 
   # Save it all to init script
   zgen save
@@ -123,7 +120,7 @@ fi
 # repository. Unfortunately, stat will return the modification time of the
 # symlink instead of the target file, so construct a full path to hand off
 # to stat so it returns the modification time of the actual .zgen-setup file.
-REAL_ZGEN_SETUP="${HOME}/$(readlink ~/.zgen-setup)"
+REAL_ZGEN_SETUP=$(readlink ~/.zgen-setup)
 
 # If .zgen-setup is newer than init.zsh, regenerate init.zsh
 if [ $(get_file_modification_time ${REAL_ZGEN_SETUP}) -gt $(get_file_modification_time ~/.zgen/init.zsh) ]; then
