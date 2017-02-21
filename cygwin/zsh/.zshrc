@@ -21,6 +21,9 @@ unsetopt correctall
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Make sure terminal is using 256-colors
+export TERM="xterm-256color"
+
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 # check / rebuild install script

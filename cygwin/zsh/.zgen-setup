@@ -82,7 +82,10 @@ load-starter-plugin-list() {
   zgen load rimraf/k
 
   # theme
-  zgen oh-my-zsh themes/ys
+  #zgen oh-my-zsh themes/ys
+  #zgen halfo/lambda-mod-zsh-theme
+  #zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+  zgen load frmendes/geometry
 
   # Save it all to init script
   zgen save
