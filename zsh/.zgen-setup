@@ -56,7 +56,6 @@ load-starter-plugin-list() {
   zgen oh-my-zsh plugins/rsync
   zgen oh-my-zsh plugins/screen
 
-
   # A set of shell functions to make it easy to install small apps and
   # utilities distributed with pip.
   zgen load sharat87/pip-app

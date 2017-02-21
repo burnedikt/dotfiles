@@ -3,6 +3,7 @@
 	email = benedikt.reiser@gmail.com
 [core]
 	editor = code -n -w
+	trustctime = false
 [push]
 	default = simple
 [filter "lfs"]

@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# Source git aliases
-source ~/.git-aliases
-
 # get the path to the sublime folder
 PROGRAM_FILES=$(win2unix "$PROGRAMFILES")
 alias sublime="$PROGRAM_FILES/Sublime\ Text\ 3/subl.exe"

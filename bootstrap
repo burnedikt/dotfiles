@@ -53,9 +53,7 @@ if [[ -f "$DOTFILES_ROOT/${pf}/bootstrap/platform.sh" ]]; then
 fi
 
 info "Updating bash / zsh configuration"
-if [[ "$pf" == 'windows' ]]; then
-  source $HOME/.bashrc
-elif [[ "$pf" == 'macos' ]]; then
+if [[ ( "$pf" == 'macos' ) || ( "$pf" == 'cygwin' ) ]]; then
   # reload shell as zsh
   exec zsh -l
   source $HOME/.zshrc

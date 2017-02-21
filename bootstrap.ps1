@@ -1,23 +1,35 @@
+function Dos2Unix {
+  param([string]$dospath)
+
+  return $dospath -replace '\\','/' -replace '^([A-Z]+):/','/$1/'
+}
+
 if (([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") {
   # the above line ensures we're running as admin
-  $install_script_path="$PSScriptRoot\windows\choco.ps1"
-  . "$install_script_path"
-  # basic installation is done, everything else will take place in msys
+  # try to install chocolatey
+  $chocolatey_install_script_path = "$PSScriptRoot\cygwin\bootstrap\choco.ps1"
+  #. "$chocolatey_install_script_path"
   Write-Output "Successfully checked Chocolatey installation"
-  # start git-bash / mysis (if installed)
-  $bash_path = "$env:programfiles\Git\bin\sh.exe"
-  $dotfiles_bootstrap_path = "$PSScriptRoot\bootstrap"
-  Write-Output "Now running bootstrap script in bash..."
-  if (Test-Path $bash_path) {
-    & $bash_path --login $dotfiles_bootstrap_path
-    Write-Output "Bootstrap script run successfully"
-    Write-Output "Opening Git-Bash for you ..."
-    # afterwards, start git-bash / mysis will automatically open
-    $git_bash_path = "$env:programfiles\Git\git-bash.exe"
-    & $git_bash_path
-  } else {
-    Write-Error "Git-Bash has apparently not been installed correctly. Please check"
-  }
+  # try to install babun
+  $babun_install_script_path = "$PSScriptRoot\cygwin\bootstrap\babun.ps1"
+  . "$babun_install_script_path"
+  Write-Output "Successfully checked Babun installation"
+  Write-Output "Windows specific bootstrap script run successfully"
+  # basic installation is done, everything else will take place in babun
+  & babun.bat
+  Write-Output "Please enter the following command in Babun to complete dotfiles setup..."
+  # get the (unix) path to the dotfiles folder
+  $dotfiles_folder_unix = Dos2Unix "$PSScriptRoot"
+  Write-Output "
+
+=======================================================================
+"
+  Write-Output "~ cd $dotfiles_folder_unix"
+  Write-Output "~ chmod +x ./bootstrap && . ./bootstrap"
+  Write-Output "
+=======================================================================
+
+"
 } else {
   Write-Warning "This Script required Admin privileges. Please run your PowerShell as Admin!"
 }
