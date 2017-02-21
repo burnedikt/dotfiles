@@ -13,6 +13,8 @@ link_dotfiles() {
   link_dotfiles_from_folder $DOTFILES_ROOT/zsh
   # zsh (2) cygwin-platform
   link_dotfiles_from_folder $DOTFILES_ROOT/cygwin/zsh
+  # windows specific aliases
+  symlink $DOTFILES_ROOT/cygwin/.win-aliases $HOME/.win-aliases
   # zgen
   symlink $DOTFILES_ROOT/zsh/zgen $HOME/.zgen
 }
