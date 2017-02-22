@@ -1,0 +1,8 @@
+# Set the default behavior, in case people don't have core.autocrlf set.
+*       text=auto
+# powershell scripts need crlf endings
+*.ps1   text eol=crlf
+# bash / zsh scripts need lf endings
+*.sh    text eol=lf
+*.zsh*  text eol=lf
+0

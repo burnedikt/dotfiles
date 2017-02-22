@@ -1,6 +1,7 @@
 source ~/.functions
 source ~/.aliases
 source ~/.win-aliases
+source ~/.git-aliases
 
 env=~/.ssh/agent.env
 

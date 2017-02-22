@@ -2,13 +2,15 @@
 	name = Benedikt Reiser
 	email = benedikt.reiser@gmail.com
 [core]
-	editor = code -n -w
+	editor = ~/.git-editor.sh
+	trustctime = false
+	autocrlf = false
 [push]
 	default = simple
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-  process = git-lfs filter-process
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
 [credential]
 	helper = wincred

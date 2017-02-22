@@ -16,3 +16,7 @@ trim_trailing_whitespace = true
 # different indentation settings for html
 [*.html]
 indent_size = 4
+
+# different line endings for power shell scripts
+[*.ps1]
+end_of_line = crlf

@@ -47,11 +47,9 @@ load-starter-plugin-list() {
   # Load some oh-my-zsh plugins
   zgen oh-my-zsh plugins/pip
   zgen oh-my-zsh plugins/sudo
-  zgen oh-my-zsh plugins/brew
   zgen oh-my-zsh plugins/colored-man-pages
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh plugins/github
-  zgen oh-my-zsh plugins/osx
   zgen oh-my-zsh plugins/python
   zgen oh-my-zsh plugins/rsync
   zgen oh-my-zsh plugins/screen
@@ -83,9 +81,11 @@ load-starter-plugin-list() {
   # adding a bit of color and some git status information on files and directories
   zgen load rimraf/k
 
-  # Pure theme setup, also needs zsh-async
-  zgen load mafredri/zsh-async
-  zgen load sindresorhus/pure
+  # theme
+  #zgen oh-my-zsh themes/ys
+  #zgen halfo/lambda-mod-zsh-theme
+  #zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+  zgen load frmendes/geometry
 
   # Save it all to init script
   zgen save

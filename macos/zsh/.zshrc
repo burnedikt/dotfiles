@@ -163,7 +163,6 @@ echo
 #
 # This snippet is from Mislav Marohnić <mislav.marohnic@gmail.com>'s
 # dotfiles repo at https://github.com/mislav/dotfiles
-
 dedupe_path() {
   typeset -a paths result
   paths=($path)
@@ -177,7 +176,8 @@ dedupe_path() {
   export PATH=${(j+:+)result}
 }
 
-# dedupe_path
+dedupe_path
+
 # Hook for desk activation
 [ -n "$DESK_ENV" ] && source "$DESK_ENV"
 
