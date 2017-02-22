@@ -17,6 +17,8 @@ link_dotfiles() {
   symlink $DOTFILES_ROOT/cygwin/.win-aliases $HOME/.win-aliases
   # zgen
   symlink $DOTFILES_ROOT/zsh/zgen $HOME/.zgen
+  # sublime editor script for git
+  symlink $DOTFILES_ROOT/cygwin/.git-editor.sh $HOME/.git-editor.sh
 }
 # go ahead
 link_dotfiles
