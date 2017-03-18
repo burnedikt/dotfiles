@@ -74,13 +74,9 @@ if [ -f ~/.ssh/id_dsa ]; then
   fi
 fi
 
-# Now that we have $PATH set up and ssh keys loaded, configure zgen.
-
-# load zgen
-source "${HOME}/.zgen/zgen.zsh"
-# check / rebuild install script
-source "${HOME}/.zgen-setup"
-# end zgen
+# Now that we have $PATH set up and ssh keys loaded, configure zplug for zsh package management
+source "${HOME}/.zplug/init.zsh" && zplug update --self
+source "${HOME}/.zplug-packages"
 
 # set some history options
 setopt append_history
