@@ -16,6 +16,9 @@ setopt correct
 # turn off the infernal correctall for filenames
 unsetopt correctall
 
+# fix spacing in windows terminal emulators like mintty or hterm
+unsetopt PROMPT_SP
+
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -24,11 +27,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Make sure terminal is using 256-colors
 export TERM="xterm-256color"
 
-# load zgen
-source "${HOME}/.zgen/zgen.zsh"
-# check / rebuild install script
-source "${HOME}/.zgen-setup"
-# end zgen
+# zsh Package management using zplug
+source "${HOME}/.zplug/init.zsh" && zplug update --self
+source "${HOME}/.zplug-packages"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
