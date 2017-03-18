@@ -24,13 +24,12 @@ unsetopt PROMPT_SP
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# Make sure terminal is using 256-colors
-export TERM="xterm-256color"
-
 # zsh Package management using zplug
-source "${HOME}/.zplug/init.zsh" && zplug update --self
+source "${HOME}/.zplug/init.zsh" && zplug update
 source "${HOME}/.zplug-packages"
 
+# Override the prompt for windows
+PROMPT='$(_user_host)$(_python_venv)%{$fg[cyan]%}%c $(git_prompt_info)$(git_prompt_short_sha)%{$fg[magenta]%}$(_git_time_since_commit)$(git_prompt_status)${_return_status}➜ '
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

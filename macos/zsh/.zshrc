@@ -75,7 +75,7 @@ if [ -f ~/.ssh/id_dsa ]; then
 fi
 
 # Now that we have $PATH set up and ssh keys loaded, configure zplug for zsh package management
-source "${HOME}/.zplug/init.zsh" && zplug update --self
+source "${HOME}/.zplug/init.zsh" && zplug update
 source "${HOME}/.zplug-packages"
 
 # set some history options
