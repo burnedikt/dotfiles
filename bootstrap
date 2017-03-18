@@ -76,7 +76,7 @@ if [[ -f $platform_bootstrap_script_path ]]; then
 fi
 
 info "Updating bash / zsh configuration"
-if [[ ( "$pf" == 'macos' ) || ( "$pf" == 'cygwin' ) ]]; then
+if [[ ( "$pf" == 'linux' ) || ( "$pf" == 'macos' ) || ( "$pf" == 'cygwin' ) ]]; then
   # reload shell as zsh
   exec zsh -l
   source $HOME/.zshrc
