@@ -26,6 +26,7 @@
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-pylint",
-		"Twig"
+		"Twig",
+		"ZSH"
 	]
 }
