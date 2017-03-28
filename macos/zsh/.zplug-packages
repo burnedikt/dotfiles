@@ -52,8 +52,8 @@ zplug "akoenig/gulp.plugin.zsh"
 zplug "rimraf/k"
 
 # Theme our prompt
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
