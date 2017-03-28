@@ -32,9 +32,6 @@ PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 # environment variables
 source ~/.zshenv
 
-# use sandboxing script to lazy load slow scripts
-source ~/.sandboxd
-
 # Conditional PATH additions
 for path_candidate in /opt/local/sbin \
   /Applications/Xcode.app/Contents/Developer/usr/bin \
