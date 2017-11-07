@@ -16,8 +16,8 @@ link_dotfiles() {
   # sublime editor script for git
   symlink "$DOTFILES_ROOT/cygwin/.git-editor.sh" "$HOME/.git-editor.sh"
 }
-# install zplug for dotfile management
-curl -sL zplug.sh/installer | zsh
+# install zplug for zsh plugin management, see https://github.com/zplug/zplug#the-best-way
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 # go ahead
 link_dotfiles
 success "All dotfiles for platform cygwin successfully synced"
