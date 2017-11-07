@@ -105,3 +105,6 @@ alias load-php-54-fpm="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.ph
 alias unload-php-56-fpm="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php56.plist"
 alias unload-php-54-fpm="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php54.plist"
 alias reload-memcached="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist && launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist"
+
+# show the current public ip of this machine
+alias publicip="curl ipecho.net/plain ; echo"
