@@ -24,6 +24,8 @@ brew 'unrar'
 brew 'wget'
 brew 'socat'
 brew 'git-lfs'
+brew 'gnupg'
+brew 'direnv'
 
 cask 'docker'
 cask 'firefox'

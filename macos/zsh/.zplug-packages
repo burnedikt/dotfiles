@@ -33,13 +33,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
 zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/rsync", from:oh-my-zsh
-
-# Disable updates using the "frozen" tag
-# shows contributions graphically in the terminal
-zplug "k4rthik/git-cal", as:command, frozen:1
-
-# ZSH auto env
-zplug "Tarrasch/zsh-autoenv"
+zplug "plugins/gpg-agent", from:oh-my-zsh
 
 # Docker completion
 zplug "srijanshetty/docker-zsh"

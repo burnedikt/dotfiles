@@ -169,6 +169,9 @@ dedupe_path() {
   export PATH=${(j+:+)result}
 }
 
+# initialize direnv to automatically prepare environment when entering a directory
+eval "$(direnv hook zsh)"
+
 dedupe_path
 
 # Hook for desk activation
