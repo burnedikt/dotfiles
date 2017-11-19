@@ -25,6 +25,7 @@ zplug "skx/sysadmin-util"
 zplug "StackExchange/blackbox"
 
 # Load some oh-my-zsh plugins
+zplug "robbyrussell/oh-my-zsh", use:"lib/*.zsh", defer:0 # Defer is needed for themes to load properly
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/brew", from:oh-my-zsh
@@ -35,8 +36,10 @@ zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/rsync", from:oh-my-zsh
 zplug "plugins/gpg-agent", from:oh-my-zsh
 
-# Docker completion
+# Docker completion ...
 zplug "srijanshetty/docker-zsh"
+# ... and aliases
+zplug "akarzim/zsh-docker-aliases"
 
 # Auto Completion for gulp tasks
 zplug "akoenig/gulp.plugin.zsh"

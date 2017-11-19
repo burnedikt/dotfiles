@@ -35,6 +35,7 @@ zplug "k4rthik/git-cal", as:command, frozen:1
 
 # Docker completion
 zplug "srijanshetty/docker-zsh"
+zplug "akarzim/zsh-docker-aliases"
 
 # Auto Completion for gulp tasks
 zplug "akoenig/gulp.plugin.zsh"
