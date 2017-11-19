@@ -232,3 +232,5 @@ function transfer() {
 win2unix () {
   echo "/$1" | sed 's/\\/\//g' | sed 's/://' | sed 's/ /\\ /'
 }
+
+function django_secret() { python -c "import random,string;print '%s'%''.join([random.SystemRandom().choice(\"{}{}{}\".format(string.ascii_letters, string.digits, string.punctuation)) for i in range(63)])" ;}
