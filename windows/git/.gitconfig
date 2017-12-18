@@ -1,0 +1,27 @@
+[user]
+	name = Benedikt Reiser
+	email = benedikt.reiser@gmail.com
+[core]
+	#editor = "'C:/Program Files/Sublime Text 3/sublime_text.exe' -w"
+  editor = "'C:/Program Files/Microsoft VS Code/code.exe' --wait --new-window"
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = "'C:/Program Files/Microsoft VS Code/code.exe' --new-window --wait --diff $LOCAL $REMOTE"
+[push]
+	default = simple
+[credential]
+	helper = wincred
+[commit]
+	# https://help.github.com/articles/signing-commits-using-gpg/
+	gpgsign = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[merge]
+  tool = unityyamlmerge
+[mergetool "unityyamlmerge"]
+  trustExitCode = false
+  cmd = "'C:/Program Files/Unity5.6.0f3/Editor/Data/Tools/UnityYAMLMerge.exe' merge -p \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\""
