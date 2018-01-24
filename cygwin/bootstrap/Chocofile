@@ -1,14 +1,11 @@
 git
-git-lfs
 vlc
-sourcetree
 sublimetext3
 sublimetext3.packagecontrol
 googlechrome
 slack
 golang
 nvm
-flashplayeractivex
 adobereader
 7zip.install
 ccleaner
@@ -17,3 +14,5 @@ filezilla
 ruby
 python2
 f.lux
+hyper
+gnupg-modern
