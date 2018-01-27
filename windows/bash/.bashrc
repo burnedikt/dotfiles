@@ -24,3 +24,5 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 
 unset env
+
+export PATH=/c/Program\ Files\ \(x86\)/gnupg/bin:$PATH
