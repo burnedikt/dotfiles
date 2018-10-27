@@ -3,7 +3,7 @@
 # this is the directory in which this file resides
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # check if fonts are maybe already installed
-check_res=`powershell -ExecutionPolicy Bypass "${DIR}/check-fonts.ps1"`
+check_res=`powershell -ExecutionPolicy Bypass "'${DIR}/check-fonts.ps1'"`
 # exit code will be 1 if not installed yet
 if [[ $? == 1 ]]; then
   info "$check_res"

@@ -2,7 +2,7 @@
 
 DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # load installation helpers
-source $DOTFILES_ROOT/cross-platform/.functions
+source "$DOTFILES_ROOT/cross-platform/.functions"
 # find out which platform we're running on
 pf=`platforms`
 
@@ -17,7 +17,7 @@ if [[ -f "$DOTFILES_ROOT/${pf}/bootstrap/fonts.sh" ]]; then
   # check if fonts are maybe already installed
   source "$DOTFILES_ROOT/${pf}/bootstrap/fonts.sh"
 else
-  source $DOTFILES_ROOT/fonts/install.sh
+  source "$DOTFILES_ROOT/fonts/install.sh"
 fi
 success "$(printf "%b%s%b correctly installed" $light_green "Powerline Fonts" $reset_color)"
 
@@ -42,7 +42,7 @@ fi
 # symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
 if [[ -f "$DOTFILES_ROOT/${pf}/bootstrap/sublime.sh" ]]; then
   info "$(printf "Synchronizing %b%s%b specific settings" $light_green "Sublime Text 3" $reset_color)"
-  source $DOTFILES_ROOT/${pf}/bootstrap/sublime.sh
+  source "$DOTFILES_ROOT/${pf}/bootstrap/sublime.sh"
   success "$(printf "%b%s%b settings synchronized" $light_green "Sublime Text 3" $reset_color)"
 fi
 
@@ -54,11 +54,11 @@ fi
 
 info "Updating bash / zsh configuration"
 if [[ "$pf" == 'windows' ]]; then
-  source $HOME/.bashrc
+  source "$HOME/.bashrc"
 elif [[ "$pf" == 'macos' ]]; then
   # reload shell as zsh
   exec zsh -l
-  source $HOME/.zshrc
+  source "$HOME/.zshrc"
 else
   fail "Platform $pf not supported"
 fi
