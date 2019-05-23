@@ -17,20 +17,13 @@ To take the quick route, just run `chmod +x ./bootstrap && ./bootstrap` to get e
 
 ### Windows
 
-On Windows, fire up an **elevated Powershell** (run as admin), cd to the dotfiles folder and follow the two steps:
+On Windows, fire up an **elevated Powershell** (run as admin), change your directory (`cd`) to the dotfiles folder and run the following command (this will disable the ExecutionPolicy while running the boostrap script):
 
-1. make sure execution of powershell scripts is allowed by running
+```powershell
+Set-ExecutionPolicy Bypass -Scope Process -Force; .\bootstrap.ps1
+```
 
-    ```
-    Set-ExecutionPolicy UNRESTRICTED -Scope CurrentUser
-    ```
-2. execute the `bootstrap.ps1` powershell script, by running
-
-    ```
-    .\bootstrap.ps1`
-    ```
-
-After the pre-requisites (git-bash, ...) have been installed, open up babun and
+After the pre-requisites (git-bash, ...) have been installed, open up babun / git bash and
 cd into the dotfiles folder. Here, just run `. ./bootstrap` to proceed with the default installation as on UNIX systems.
 
 ### Manual Labor
