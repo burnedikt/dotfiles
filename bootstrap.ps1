@@ -7,7 +7,7 @@ if (([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S
   # the above line ensures we're running as admin
   # try to install chocolatey
   $chocolatey_install_script_path = "$PSScriptRoot\cygwin\bootstrap\choco.ps1"
-  #. "$chocolatey_install_script_path"
+  . "$chocolatey_install_script_path"
   Write-Output "Successfully checked Chocolatey installation"
   $title = "Windows Console Emulator Choice"
   $message = "Do you want to use Git for Windows (Git Bash) or Babun (cygwin)?"
