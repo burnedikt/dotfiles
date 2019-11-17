@@ -143,13 +143,13 @@ link_dotfiles_from_folder () {
   # enable globs for dotfiles (with leading .)
   shopt -s dotglob
   # get folder
-  local base_folder=$1
-  if [[ -d $base_folder ]]; then
-    for src in ${base_folder%/}/.*
+  local base_folder="$1"
+  if [[ -d "$base_folder" ]]; then
+    for src in "${base_folder%/}"/.*
     do
       # if it's a file, symlink it
-      if [[ -f $src ]]; then
-        symlink $src $HOME/$(basename $src)
+      if [[ -f "$src" ]]; then
+        symlink "$src" "$HOME/$(basename "$src")"
       fi
     done
   else

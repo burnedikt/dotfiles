@@ -2,7 +2,7 @@
 
 DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # load installation helpers
-source $DOTFILES_ROOT/cross-platform/.functions
+source "$DOTFILES_ROOT/cross-platform/.functions"
 # find out which platform we're running on
 pf=`platforms`
 
@@ -15,7 +15,7 @@ function find_bootstrap_script_of_type_for_platform {
   local bootstrap_script_path="$DOTFILES_ROOT/${platform}/bootstrap/${bootstrap_script_type}.sh"
   if [[ -f $bootstrap_script_path ]]; then
     # return path to boostrap script
-    echo $bootstrap_script_path
+    echo "$bootstrap_script_path"
   else
     # if the file does not exist, check fallback locations
     if [[ "$pf" == 'windows' ]]; then
@@ -36,7 +36,7 @@ info "$(printf "Installing / Checking %b%s%b" $light_green "Powerline Fonts" $re
 fonts_bootstrap_script_path=$(find_bootstrap_script_of_type_for_platform 'fonts' $pf)
 if [[ -f $fonts_bootstrap_script_path ]]; then
   # check if fonts are maybe already installed
-  source $fonts_bootstrap_script_path
+  source "$fonts_bootstrap_script_path"
 fi
 success "$(printf "%b%s%b correctly installed" $light_green "Powerline Fonts" $reset_color)"
 
@@ -45,7 +45,7 @@ success "$(printf "%b%s%b correctly installed" $light_green "Powerline Fonts" $r
 packages_bootstrap_script_path=$(find_bootstrap_script_of_type_for_platform 'packages' $pf)
 if [[ -f $packages_bootstrap_script_path ]]; then
   info "$(printf "Installing / Updating Packages using %b%s%b" $light_green "Package Manager" $reset_color)"
-  source $packages_bootstrap_script_path
+  source "$packages_bootstrap_script_path"
 fi
 
 # Symlink / Dotfile Management
@@ -57,14 +57,14 @@ if [[ -f $dotfiles_bootstrap_script_path ]]; then
       $green "$HOME" $reset_color \
       $light_red $reset_color \
       $light_yellow "$pf" $reset_color)"
-  source $dotfiles_bootstrap_script_path
+  source "$dotfiles_bootstrap_script_path"
 fi
 
 # symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
 sublime_bootstrap_script_path=$(find_bootstrap_script_of_type_for_platform 'sublime' $pf)
 if [[ -f $sublime_bootstrap_script_path ]]; then
   info "$(printf "Synchronizing %b%s%b specific settings" $light_green "Sublime Text 3" $reset_color)"
-  source $sublime_bootstrap_script_path
+  source "$sublime_bootstrap_script_path"
   success "$(printf "%b%s%b settings synchronized" $light_green "Sublime Text 3" $reset_color)"
 fi
 
@@ -72,7 +72,7 @@ fi
 platform_bootstrap_script_path=$(find_bootstrap_script_of_type_for_platform 'platform' $pf)
 if [[ -f $platform_bootstrap_script_path ]]; then
   info "$(printf "Running platform-specific scripts for %b%s%b" $light_green $pf $reset_color)"
-  source $platform_bootstrap_script_path
+  source "$platform_bootstrap_script_path"
 fi
 
 info "Updating bash / zsh configuration"
