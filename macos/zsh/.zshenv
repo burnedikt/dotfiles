@@ -26,6 +26,8 @@ export GEM_PATH=$HOME/.gem
 # Open ssl stuff
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib
 
+export LOCATE_PATH=/var/db/locate.database
+
 # include nvm
 NVM_DIR="$HOME/.nvm"
 
@@ -68,3 +70,6 @@ do
     export PATH=${PATH}:${path_candidate}
   fi
 done
+
+# enable agent forwarding for oh-my-zsh ssh-agent plugin, https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#instructions
+zstyle :omz:plugins:ssh-agent agent-forwarding on

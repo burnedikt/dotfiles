@@ -13,8 +13,14 @@ link_dotfiles() {
   # sandboxd script
   symlink $DOTFILES_ROOT/sandboxd/sandboxd $HOME/.sandboxd
 }
-# install zplug for zsh plugin management, see https://github.com/zplug/zplug#the-best-way
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+# install zinit as a plugin manager for zsh, see https://github.com/zdharma/zinit
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f"
+fi
 # go ahead
 link_dotfiles
 success "All dotfiles for platform macos successfully linked"

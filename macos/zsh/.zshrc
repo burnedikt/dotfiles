@@ -1,8 +1,4 @@
-#!/usr/bin/env zsh
-
-# set default locale so zplug will work correctly
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+#!/usr/bin/env zs
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 export COMPLETION_WAITING_DOTS="true"
@@ -19,34 +15,6 @@ PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 
 # environment variables
 source ~/.zshenv
-
-# Fun with SSH
-if [ $(ssh-add -l | grep -c "The agent has no identities." ) -eq 1 ]; then
-  if [[ "$(uname -s)" == "Darwin" ]]; then
-    # We're on OS X. Try to load ssh keys using pass phrases stored in
-    # the OSX keychain.
-    #
-    # You can use ssh-add -K /path/to/key to store pass phrases into
-    # the OSX keychain
-    ssh-add -k
-  fi
-fi
-
-if [ -f ~/.ssh/id_rsa ]; then
-  if [ $(ssh-add -l | grep -c ".ssh/id_rsa" ) -eq 0 ]; then
-    ssh-add ~/.ssh/id_rsa
-  fi
-fi
-
-if [ -f ~/.ssh/id_dsa ]; then
-  if [ $(ssh-add -L | grep -c ".ssh/id_dsa" ) -eq 0 ]; then
-    ssh-add ~/.ssh/id_dsa
-  fi
-fi
-
-# Now that we have $PATH set up and ssh keys loaded, configure zplug for zsh package management
-source "${HOME}/.zplug/init.zsh" && zplug update
-source "${HOME}/.zplug-packages"
 
 # set some history options
 setopt append_history
@@ -88,23 +56,10 @@ else
   echo "Could not read zsh_aliases file ... Is it actually located under ~/.zsh_aliases?"
 fi
 
-export LOCATE_PATH=/var/db/locate.database
-
 # Load AWS credentials
 if [ -f ~/.aws/aws_variables ]; then
   source ~/.aws/aws_variables
 fi
-
-# Speed up autocomplete, force prefix mapping
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)*==34=34}:${(s.:.)LS_COLORS}")';
-
-echo
-echo "Current SSH Keys:"
-ssh-add -l
-echo
 
 # In case a plugin adds a redundant path entry, remove duplicate entries
 # from PATH
@@ -133,8 +88,16 @@ dedupe_path
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Forward SSH-Agent to docker (on Mac OS), see https://github.com/uber-common/docker-ssh-agent-forward
-pinata-ssh-forward
-
 # Starfish prompt
 eval "$(starship init zsh)"
+
+### Added by Zinit's installer
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit installer's chunk
+
+# Load zinit plugins
+if [[ -f $HOME/.zinit-plugins ]]; then
+  source "$HOME/.zinit-plugins"
+fi
