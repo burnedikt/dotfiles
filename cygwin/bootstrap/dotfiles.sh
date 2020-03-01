@@ -11,10 +11,6 @@ link_dotfiles() {
   link_dotfiles_from_folder "$DOTFILES_ROOT/windows/bash"
   # zsh cygwin-platform
   link_dotfiles_from_folder "$DOTFILES_ROOT/cygwin/zsh"
-  # windows specific aliases
-  symlink "$DOTFILES_ROOT/cygwin/.win-aliases" "$HOME/.win-aliases"
-  # sublime editor script for git
-  symlink "$DOTFILES_ROOT/cygwin/.git-editor.sh" "$HOME/.git-editor.sh"
 }
 # install zplug for zsh plugin management, see https://github.com/zplug/zplug#the-best-way
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh

@@ -1,11 +1,5 @@
 #!/usr/bin/env zsh
 
-# Only including a shebang to trigger Sublime Text to use shell syntax highlighting
-#
-# Copyright 2006-2015 Joseph Block <jpb@unixorn.net>
-#
-# BSD licensed, see LICENSE.txt
-
 # first of all source the default aliases
 source ~/.aliases
 
@@ -31,9 +25,6 @@ alias ll="ls -lFa | TERM=vt100 less"
 alias gpaste="pbpaste | perl -pe 's/\r\n|\r/\n/g'"
 alias pbconvert="pbpaste | perl -pe 's/\r\n|\r/\n/g' | pbcopy"
 alias pbsort="pbpaste | sort | pbcopy"
-
-# Sublime
-alias s="subl"
 
 # Sound.
 alias stfu="osascript -e 'set volume output muted true'"

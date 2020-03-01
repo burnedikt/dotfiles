@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # set default locale so zplug will work correctly
-export LC_ALL=en_US.UTF-8  
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # profile startup time, turn on by setting to true

@@ -12,8 +12,8 @@ export PYTHONIOENCODING='UTF-8';
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X';
 
-# use sublime as default editor
-export EDITOR='subl -w'
+# use VS Code as default editor
+export EDITOR='code -w'
 
 # path for Go lang packages
 export GOPATH=/usr/local/lib/gocode

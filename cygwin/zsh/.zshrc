@@ -57,7 +57,6 @@ PROMPT='$(_user_host)$(_python_venv)%{$fg[cyan]%}%c $(git_prompt_info)$(git_prom
 
 source ~/.functions
 source ~/.aliases
-source ~/.win-aliases
 
 env=~/.ssh/agent.env
 

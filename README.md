@@ -25,11 +25,3 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; .\bootstrap.ps1
 
 After the pre-requisites (git-bash, ...) have been installed, open up babun / git bash and
 cd into the dotfiles folder. Here, just run `. ./bootstrap` to proceed with the default installation as on UNIX systems.
-
-### Manual Labor
-
-#### macOS
-
-##### Sublime Text Icon
-
-The [sublime text icon](sublime/icon.icns) (all thanks goes to [Yannik Siebert](https://dribbble.com/shots/1827488-Final-Sublime-Text-Replacement-Icon)) needs to be assigned to sublime manually. Instructons on how to change an application's icon can be found [here](http://www.macworld.co.uk/how-to/mac-software/how-change-os-x-yosemites-icons-3597494/).

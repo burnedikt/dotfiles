@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# get the path to the sublime folder
-PROGRAM_FILES=$(cygpath $ProgramW6432)
-alias sublime='"${PROGRAM_FILES}/Sublime Text 3/subl.exe"'
-alias subl="sublime"
-alias s="subl"

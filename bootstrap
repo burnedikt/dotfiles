@@ -7,7 +7,7 @@ source "$DOTFILES_ROOT/cross-platform/.functions"
 pf=`platforms`
 
 function find_bootstrap_script_of_type_for_platform {
-  # can be 'fonts', 'packages', 'dotfiles', 'sublime', 'platform'
+  # can be 'fonts', 'packages', 'dotfiles', 'platform'
   local bootstrap_script_type=$1
   # can be any platform ('windows', 'cygwin', 'macos')
   local platform=$2
@@ -58,14 +58,6 @@ if [[ -f $dotfiles_bootstrap_script_path ]]; then
       $light_red $reset_color \
       $light_yellow "$pf" $reset_color)"
   source "$dotfiles_bootstrap_script_path"
-fi
-
-# symlink the preferences for sublime, to do so, remove all local settings first and create a symlink instead
-sublime_bootstrap_script_path=$(find_bootstrap_script_of_type_for_platform 'sublime' $pf)
-if [[ -f $sublime_bootstrap_script_path ]]; then
-  info "$(printf "Synchronizing %b%s%b specific settings" $light_green "Sublime Text 3" $reset_color)"
-  source "$sublime_bootstrap_script_path"
-  success "$(printf "%b%s%b settings synchronized" $light_green "Sublime Text 3" $reset_color)"
 fi
 
 # run any platform specific bootstrap scripts (e.g. osx-defaults on macos)
