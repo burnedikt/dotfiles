@@ -5,6 +5,7 @@ tap 'caskroom/cask'
 
 brew 'ack'
 brew 'coreutils'
+brew 'gnu-sed'
 brew 'go'
 brew 'grc'
 brew 'imagemagick'
