@@ -50,3 +50,8 @@ alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.ar
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+
+alias changessincerelease='git log $(git describe --tags --abbrev=0)..HEAD --pretty=format:"%Cblue%h%Creset %s%n%b"'
+alias createreleasetag='echo $(changessincerelease) | git tag -ase -F -'
+alias latesttag='git tag --sort=v:refname | tail -1'
