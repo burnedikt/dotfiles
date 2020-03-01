@@ -4,31 +4,13 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# profile startup time, turn on by setting to true
-PROFILE_STARTUP=false
-if [[ "$PROFILE_STARTUP" == true ]]; then
-    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-    PS4=$'%D{%M%S%.} %N:%i> '
-    exec 3>&2 2>$HOME/tmp/startlog.$$
-    setopt xtrace prompt_subst
-fi
-
-# Set this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-unsetopt CASE_GLOB
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 export COMPLETION_WAITING_DOTS="true"
 
 # Correct spelling for commands
 setopt correct
-
+unsetopt CASE_GLOB
+setopt dotglob
 # turn off the infernal correctall for filenames
 unsetopt correctall
 
@@ -37,21 +19,6 @@ PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 
 # environment variables
 source ~/.zshenv
-
-# Conditional PATH additions
-for path_candidate in /opt/local/sbin \
-  /Applications/Xcode.app/Contents/Developer/usr/bin \
-  /opt/local/bin \
-  /usr/local/share/npm/bin \
-  ~/.cabal/bin \
-  ~/.rbenv/bin \
-  ~/bin \
-  ~/src/gocode/bin
-do
-  if [ -d ${path_candidate} ]; then
-    export PATH=${PATH}:${path_candidate}
-  fi
-done
 
 # Fun with SSH
 if [ $(ssh-add -l | grep -c "The agent has no identities." ) -eq 1 ]; then
@@ -91,14 +58,11 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
 setopt hist_verify
-
 # Share your history across all your terminal windows
 setopt share_history
-#setopt noclobber
 
 # set some more options
 setopt pushd_ignore_dups
-#setopt pushd_silent
 
 # Keep a ton of history.
 HISTSIZE=50000
@@ -110,21 +74,6 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 # in seconds.
 REPORTTIME=2
 TIMEFMT="%U user %S system %P cpu %*Es total"
-
-# Expand aliases inline - see http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
-globalias() {
-   if [[ $LBUFFER =~ ' [A-Z0-9]+$' ]]; then
-     zle _expand_alias
-     zle expand-word
-   fi
-   zle self-insert
-}
-
-zle -N globalias
-
-bindkey " " globalias
-bindkey "^ " magic-space           # control-space to bypass completion
-bindkey -M isearch " " magic-space # normal space during searches
 
 # Customize to your needs...
 # source functions
@@ -180,24 +129,12 @@ eval "$(direnv hook zsh)"
 
 dedupe_path
 
-# Hook for desk activation
-[ -n "$DESK_ENV" ] && source "$DESK_ENV"
+# NVM Setup
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# disable profiler
-if [[ "$PROFILE_STARTUP" == true ]]; then
-    unsetopt xtrace
-    exec 2>&3 3>&-
-fi
+# Forward SSH-Agent to docker (on Mac OS), see https://github.com/uber-common/docker-ssh-agent-forward
+pinata-ssh-forward
 
-# JAVA Home
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# Starfish prompt
+eval "$(starship init zsh)"

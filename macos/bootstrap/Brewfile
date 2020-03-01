@@ -4,7 +4,9 @@ tap 'homebrew/bundle'
 tap 'caskroom/cask'
 
 brew 'ack'
+brew 'colordiff'
 brew 'coreutils'
+# replace mac builtins with gnu implementations
 brew 'gnu-sed'
 brew 'go'
 brew 'grc'
@@ -27,6 +29,7 @@ brew 'socat'
 brew 'git-lfs'
 brew 'gnupg'
 brew 'direnv'
+brew 'starship'
 
 cask 'visual-studio-code'
 cask 'docker'
