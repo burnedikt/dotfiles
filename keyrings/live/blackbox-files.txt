@@ -1,3 +1,0 @@
-cygwin/git/.gitconfig
-linux/git/.gitconfig
-macos/git/.gitconfig

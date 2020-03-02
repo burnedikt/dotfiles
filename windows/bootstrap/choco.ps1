@@ -14,6 +14,6 @@ ForEach( $choco in $chocos ) {
   choco install -y --ignore-checksums $choco
 }
 # ... and we can proceed with the installation there
-Write-Output "Chocolatey and packages installation finished. Everything else can now be done from within babun / cygwin."
+Write-Output "Chocolatey and packages installation finished. Everything else can now be done from within git bash."
 # leave
 exit

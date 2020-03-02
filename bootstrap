@@ -7,9 +7,9 @@ source "$DOTFILES_ROOT/cross-platform/.functions"
 pf=`platforms`
 
 function find_bootstrap_script_of_type_for_platform {
-  # can be 'fonts', 'packages', 'dotfiles', 'platform'
+  # can be 'packages', 'dotfiles', 'platform'
   local bootstrap_script_type=$1
-  # can be any platform ('windows', 'cygwin', 'macos')
+  # can be any platform ('windows', 'macos')
   local platform=$2
   # check for file in platform-specific bootstrap folder
   local bootstrap_script_path="$DOTFILES_ROOT/${platform}/bootstrap/${bootstrap_script_type}.sh"
@@ -17,12 +17,7 @@ function find_bootstrap_script_of_type_for_platform {
     # return path to boostrap script
     echo "$bootstrap_script_path"
   else
-    # if the file does not exist, check fallback locations
-    if [[ "$pf" == 'windows' ]]; then
-      find_bootstrap_script_of_type_for_platform $bootstrap_script_type 'cygwin'
-    else
-      fail "Bootstrap script of type $bootstrap_script_type for platform $platform not found"
-    fi
+    fail "Bootstrap script of type $bootstrap_script_type for platform $platform not found"
   fi
 }
 
@@ -30,15 +25,6 @@ function find_bootstrap_script_of_type_for_platform {
 info "$(printf "Updating %b%s%b" $light_green "Git Submodules" $reset_color)"
 git submodule update --init --recursive .
 success "$(printf "%b%s%b successfully updated" $light_green "Git Submodules" $reset_color)"
-
-# install the powerline fonts
-info "$(printf "Installing / Checking %b%s%b" $light_green "Powerline Fonts" $reset_color)"
-fonts_bootstrap_script_path=$(find_bootstrap_script_of_type_for_platform 'fonts' $pf)
-if [[ -f $fonts_bootstrap_script_path ]]; then
-  # check if fonts are maybe already installed
-  source "$fonts_bootstrap_script_path"
-fi
-success "$(printf "%b%s%b correctly installed" $light_green "Powerline Fonts" $reset_color)"
 
 # Package Management
 # run any platform specific package management tasks
@@ -68,7 +54,7 @@ if [[ -f $platform_bootstrap_script_path ]]; then
 fi
 
 info "Updating bash / zsh configuration"
-if [[ ( "$pf" == 'linux' ) || ( "$pf" == 'macos' ) || ( "$pf" == 'cygwin' ) ]]; then
+if [[ ( "$pf" == 'linux' ) || ( "$pf" == 'macos' ) ]]; then
   # reload shell as zsh
   exec zsh -l
   source $HOME/.zshrc

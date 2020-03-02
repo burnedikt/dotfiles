@@ -25,3 +25,5 @@ fi
 unset env
 
 export PATH=/c/Program\ Files\ \(x86\)/gnupg/bin:$PATH
+
+eval "$(starship init bash)"
