@@ -1,0 +1,17 @@
+[user]
+	name = Benedikt Reiser
+	email = benedikt.reiser@gmail.com
+[core]
+	#editor = "'C:/Program Files/Sublime Text 3/sublime_text.exe' -w"
+  editor = "code --wait --new-window"
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = "code --new-window --wait --diff $LOCAL $REMOTE"
+[push]
+	default = simple
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

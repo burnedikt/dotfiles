@@ -14,7 +14,11 @@ unsetopt correctall
 PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
 
 # environment variables
-source ~/.zshenv
+if [ -r ~/.zshenv ]; then
+  source ~/.zshenv
+else
+  echo "Could not read zshenv file ... Is it actually located under ~/.zshenv?"
+fi
 
 # set some history options
 setopt append_history

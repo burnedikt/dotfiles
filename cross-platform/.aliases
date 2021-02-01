@@ -17,7 +17,7 @@ alias egrep='egrep --color=auto'
 # find out which platform we're running on
 pf=`platforms`
 colorflag="-G"
-if [[ ( $pf == 'windows' )) ]]; then
+if [[ $pf == 'windows' ]] || [[ $pf == 'linux' ]]; then
   colorflag='--color=auto'
 elif [[ $pf == 'macos' ]]; then
   colorflag="-G"
