@@ -1,7 +1,7 @@
 #!/usr/bin/env zs
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-export COMPLETION_WAITING_DOTS="true"
+#export COMPLETION_WAITING_DOTS="true"
 
 # Correct spelling for commands
 setopt correct
@@ -91,9 +91,6 @@ dedupe_path
 # NVM Setup
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# Starfish prompt
-eval "$(starship init zsh)"
 
 ### Added by Zinit's installer
 source "$HOME/.zinit/bin/zinit.zsh"

@@ -52,6 +52,7 @@ for path_candidate in /opt/local/sbin \
   /Applications/Xcode.app/Contents/Developer/usr/bin \
   /opt/local/bin \
   /usr/local/share/npm/bin \
+  /usr/local/opt/gettext/bin \
   $HOME/.cabal/bin \
   $HOME/.rbenv/bin \
   $HOME/bin \
@@ -64,12 +65,26 @@ for path_candidate in /opt/local/sbin \
   $MONO_DIR \
   $GOPATH/bin \
   /usr/local/opt/go/libexec/bin \
-  $HOME/.rvm/bin
+  $HOME/.rvm/bin \
+  /usr/local/opt/openssl@1.1/bin \
+  $HOME/.pyenv/bin \
+  /usr/local/bin
 do
   if [ -d ${path_candidate} ]; then
     export PATH=${PATH}:${path_candidate}
   fi
 done
 
+# Pyenv (Python version manager)
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Compiling C / C++ Code
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+
 # enable agent forwarding for oh-my-zsh ssh-agent plugin, https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#instructions
 zstyle :omz:plugins:ssh-agent agent-forwarding on
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

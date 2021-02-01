@@ -12,8 +12,8 @@ link_dotfiles() {
   link_dotfiles_from_folder $DOTFILES_ROOT/macos/zsh
   # cross-platform dotfiles
   link_dotfiles_from_folder $DOTFILES_ROOT/cross-platform
-  # sandboxd script
-  symlink $DOTFILES_ROOT/sandboxd/sandboxd $HOME/.sandboxd
+  # starship prompt configuration
+  symlink $DOTFILES_ROOT/cross-platform/starship.toml $HOME/.config/starship.toml
 }
 
 # install zinit as a plugin manager for zsh, see https://github.com/zdharma/zinit
