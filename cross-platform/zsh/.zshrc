@@ -11,7 +11,7 @@ setopt dotglob
 unsetopt correctall
 
 # Base PATH
-PATH=/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin
+PATH="$PATH:/usr/local/bin:/usr/local/sbin:/sbin:/usr/sbin:/bin:/usr/bin"
 
 # environment variables
 if [ -r ~/.zshenv ]; then
@@ -65,28 +65,8 @@ if [ -f ~/.aws/aws_variables ]; then
   source ~/.aws/aws_variables
 fi
 
-# In case a plugin adds a redundant path entry, remove duplicate entries
-# from PATH
-#
-# This snippet is from Mislav Marohnić <mislav.marohnic@gmail.com>'s
-# dotfiles repo at https://github.com/mislav/dotfiles
-dedupe_path() {
-  typeset -a paths result
-  paths=($path)
-
-  while [[ ${#paths} -gt 0 ]]; do
-    p="${paths[1]}"
-    shift paths
-    [[ -z ${paths[(r)$p]} ]] && result+="$p"
-  done
-
-  export PATH=${(j+:+)result}
-}
-
 # initialize direnv to automatically prepare environment when entering a directory
 eval "$(direnv hook zsh)"
-
-dedupe_path
 
 # NVM Setup
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

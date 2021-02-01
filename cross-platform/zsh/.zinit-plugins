@@ -21,7 +21,6 @@ zinit load sei40kr/fast-alias-tips-bin
 zinit load sei40kr/zsh-fast-alias-tips
 
 # Load some oh-my-zsh plugins
-zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
 zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
