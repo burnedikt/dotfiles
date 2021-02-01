@@ -102,3 +102,6 @@ autoload -Uz _zinit
 if [[ -f $HOME/.zinit-plugins ]]; then
   source "$HOME/.zinit-plugins"
 fi
+
+# Starship prompt
+eval "$(starship init zsh)"
