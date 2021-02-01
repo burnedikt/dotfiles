@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+# zsh packages are managed through zinit
+# https://github.com/zdharma/zinit
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+
+# Syntax Highlighting for zsh
+zinit light zdharma/fast-syntax-highlighting
+
+# Ctrl+R search improvements
+zinit load zdharma/history-search-multi-word
+
+# `cd` on steroids
+zinit load agkozak/zsh-z
+
+# Remember the aliases I forgot
+zinit ice from'gh-r' as'program'
+zinit load sei40kr/fast-alias-tips-bin
+zinit load sei40kr/zsh-fast-alias-tips
+
+# Load some oh-my-zsh plugins
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
+zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
+
+zinit ice as"program" pick"bin/git-dsf"
+zinit light zdharma/zsh-diff-so-fancy
