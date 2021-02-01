@@ -25,3 +25,4 @@ sudo apt install direnv zsh -y
 
 # Starship
 test ! -f $(which starship) && curl -fsSL https://starship.rs/install.sh | bash
+test ! -f $(which pyenv) && curl https://pyenv.run | bash
