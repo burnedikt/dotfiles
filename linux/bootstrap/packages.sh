@@ -21,7 +21,7 @@ fi
 
 # Request superuser rights for package installation
 sudo apt update
-sudo apt install direnv zsh libffi-dev nodejs npm -y
+sudo apt install direnv zsh libffi-dev nodejs npm git-lfs -y
 
 # Starship
 test ! -f $(which starship) && curl -fsSL https://starship.rs/install.sh | bash
