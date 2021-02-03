@@ -25,5 +25,8 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
 zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
 
+# proper zsh theme
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
 zinit ice as"program" pick"bin/git-dsf"
 zinit light zdharma/zsh-diff-so-fancy
