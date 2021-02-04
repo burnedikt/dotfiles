@@ -23,6 +23,4 @@ fi
 sudo apt update
 sudo apt install direnv zsh libffi-dev nodejs npm git-lfs -y
 
-# Starship
-test ! -f $(which starship) && curl -fsSL https://starship.rs/install.sh | bash
 test ! -f $(which pyenv) && curl https://pyenv.run | bash
