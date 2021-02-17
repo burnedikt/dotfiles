@@ -22,8 +22,6 @@ zinit load sei40kr/zsh-fast-alias-tips
 
 # Load some oh-my-zsh plugins
 zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
-zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
 
 # proper zsh theme
 zinit ice depth=1; zinit light romkatv/powerlevel10k

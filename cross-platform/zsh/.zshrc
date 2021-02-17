@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
 
+source "$HOME/.zinit/bin/zinit.zsh"
+
+# SSH and GPG must be loaded prior to the p10k instant prompt
+zinit snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
+zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -82,11 +88,8 @@ eval "$(direnv hook zsh)"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-### Added by Zinit's installer
-source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-### End of Zinit installer's chunk
 
 # Load zinit plugins
 if [[ -f $HOME/.zinit-plugins ]]; then
