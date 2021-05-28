@@ -23,4 +23,4 @@ fi
 sudo apt update
 sudo apt install direnv zsh libffi-dev nodejs npm git-lfs -y
 
-test ! -f $(which pyenv) && curl https://pyenv.run | bash
+which pyenv || curl https://pyenv.run | bash
