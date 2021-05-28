@@ -5,5 +5,8 @@ export PATH=/usr/local/go/bin:$PATH
 
 export EDITOR='/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code --wait'
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
