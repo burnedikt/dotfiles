@@ -21,7 +21,7 @@ fi
 
 # Request superuser rights for package installation
 sudo apt update
-sudo apt install direnv zsh libffi-dev nodejs npm git-lfs -y
+sudo apt install direnv zsh libffi-dev nodejs npm git-lfs pipenv -y
 
 which pyenv || curl https://pyenv.run | bash
 whch nvm || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
