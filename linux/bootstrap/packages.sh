@@ -21,7 +21,7 @@ fi
 
 # Request superuser rights for package installation
 sudo apt update
-sudo apt install direnv zsh libffi-dev nodejs npm git-lfs pipenv -y
+sudo apt install direnv zsh libffi-dev nodejs npm git-lfs -y
 
 which pyenv || curl https://pyenv.run | bash
 whch nvm || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
@@ -30,3 +30,6 @@ whch nvm || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/instal
 GO_VERSION=1.16.4.linux-amd64
 GO_ARCHIVE=go$GO_VERSION.tar.gz
 which go || (wget https://golang.org/dl/$GO_ARCHIVE && sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf $GO_ARCHIVE && rm $GO_ARCHIVE)
+
+# Install pipenv
+pip install --user --upgrade pipenv
