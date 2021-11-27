@@ -15,6 +15,9 @@ if (([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S
   . "$scoop_install_script_path"
   Write-Output "Successfully checked Scoop installation"
 
+  # Enable WSL2 support
+  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
   # start git-bash / mysis (if installed)
   $bash_path = "$env:programfiles\Git\bin\sh.exe"
   $dotfiles_bootstrap_path = "$PSScriptRoot\bootstrap"
