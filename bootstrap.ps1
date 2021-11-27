@@ -6,9 +6,9 @@ function Dos2Unix {
 if (([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") {
   # the above line ensures we're running as admin
   # try to install chocolatey + packages
-  # $chocolatey_install_script_path = "$PSScriptRoot\windows\bootstrap\choco.ps1"
-  # . "$chocolatey_install_script_path"
-  # Write-Output "Successfully checked Chocolatey installation"
+  $chocolatey_install_script_path = "$PSScriptRoot\windows\bootstrap\choco.ps1"
+  . "$chocolatey_install_script_path"
+  Write-Output "Successfully checked Chocolatey installation"
 
   # try to install scoop + packages
   $scoop_install_script_path = "$PSScriptRoot\windows\bootstrap\scoop.ps1"
