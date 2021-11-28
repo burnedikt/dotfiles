@@ -16,7 +16,7 @@ ForEach( $bucket in $scoopBuckets ) {
 }
 
 # now that scoop has been installed, install all the required packages
-$scoops = @("starship", "FiraCode", "windows-terminal", "ruby", "python", "nvm", "curl", "gnupg", "go")
+$scoops = @("starship", "FiraCode", "FiraCode-NF", "FiraCode-NF-Mono", "windows-terminal", "ruby", "python", "nvm", "curl", "gnupg", "go")
 ForEach( $scoop in $scoops ) {
   scoop install $scoop
 }
