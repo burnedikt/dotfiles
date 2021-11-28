@@ -17,7 +17,9 @@ if (([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S
   Write-Output "Successfully checked Chocolatey installation"
 
   # Enable WSL2 support
+  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
   dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  wsl --set-default-version 2
 
   # start git-bash / mysis (if installed)
   $bash_path = "$env:userprofile\scoop\apps\git\current\bin\sh.exe"
