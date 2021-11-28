@@ -15,5 +15,3 @@ ForEach( $choco in $chocos ) {
 }
 # ... and we can proceed with the installation there
 Write-Output "Chocolatey and packages installation finished. Everything else can now be done from within git bash."
-# leave
-exit
