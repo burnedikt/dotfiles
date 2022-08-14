@@ -84,10 +84,6 @@ fi
 # initialize direnv to automatically prepare environment when entering a directory
 eval "$(direnv hook zsh)"
 
-# NVM Setup
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
 # Initialize pyenv
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
@@ -100,3 +96,7 @@ autoload -Uz _zinit
 if [[ -f $HOME/.zinit-plugins ]]; then
   source "$HOME/.zinit-plugins"
 fi
+
+# NVM Setup
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
