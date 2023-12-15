@@ -10,6 +10,7 @@
     cmd = "code --new-window --wait --diff $LOCAL $REMOTE"
 [push]
 	default = simple
+	autoSetupRemote = true
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -17,3 +18,13 @@
 	smudge = git-lfs smudge -- %f
 [core]
 	pager = diff-so-fancy | less -FXRi
+[diff "ansible-vault"]
+	textconv = ansible-vault view
+[gpg]
+	program = /usr/bin/gpg
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[fetch]
+	prune = true
