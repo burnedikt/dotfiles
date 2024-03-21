@@ -7,6 +7,7 @@ brew 'coreutils'
 # replace mac builtins with gnu implementations
 brew 'gnu-sed'
 brew 'libgit2'
+brew 'git-lfs'
 brew 'openssl'
 brew 'nvm'
 brew 'readline'
