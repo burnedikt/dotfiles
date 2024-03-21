@@ -1,10 +1,17 @@
 #!/usr/bin/env zsh
 
-source "$HOME/.zinit/bin/zinit.zsh"
+# Load zi, successor to zinit, see https://wiki.zshell.dev/docs/getting_started/installation
+source "$HOME/.zi/bin/zi.zsh"
+
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
+
+# examples here -> https://wiki.zshell.dev/ecosystem/category/-annexes
+zicompinit # <- https://wiki.zshell.dev/docs/guides/commands
 
 # SSH and GPG must be loaded prior to the p10k instant prompt
-zinit snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
-zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
+zi snippet OMZ::plugins/gpg-agent/gpg-agent.plugin.zsh
+zi snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -89,12 +96,9 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load zinit plugins
-if [[ -f $HOME/.zinit-plugins ]]; then
-  source "$HOME/.zinit-plugins"
+# Load zi plugins
+if [[ -f $HOME/.zi-plugins ]]; then
+  source "$HOME/.zi-plugins"
 fi
 
 # NVM Setup

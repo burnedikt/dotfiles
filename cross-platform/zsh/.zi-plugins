@@ -1,0 +1,30 @@
+#!/usr/bin/env zsh
+
+# zsh packages are managed through zi
+# https://github.com/z-shell/zi
+
+zi light zsh-users/zsh-autosuggestions
+zi light zsh-users/zsh-completions
+
+# Syntax Highlighting for zsh
+zi light zdharma-continuum/fast-syntax-highlighting
+
+# Ctrl+R search improvements
+zi load zdharma-continuum/history-search-multi-word
+
+# `cd` on steroids
+zi load agkozak/zsh-z
+
+# Remember the aliases I forgot
+zi ice from'gh-r' as'program'
+zi load sei40kr/fast-alias-tips-bin
+zi load sei40kr/zsh-fast-alias-tips
+
+# Load some oh-my-zsh plugins
+zi snippet OMZ::plugins/git/git.plugin.zsh
+
+# proper zsh theme
+zi ice depth=1; zi light romkatv/powerlevel10k
+
+zi ice as'program' pick'bin/*'
+zi light z-shell/zsh-diff-so-fancy
