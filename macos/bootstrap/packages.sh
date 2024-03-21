@@ -2,7 +2,7 @@
 res=`which brew &>/dev/null`
 if [[ $? != 0 ]]; then
   echo 'Installing Homebrew...'
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew update
 fi
 # path to the brewfile

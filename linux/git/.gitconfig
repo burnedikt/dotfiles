@@ -2,8 +2,7 @@
 	name = Benedikt Reiser
 	email = benedikt.reiser@gmail.com
 [core]
-	#editor = "'C:/Program Files/Sublime Text 3/sublime_text.exe' -w"
-  editor = "code --wait --new-window"
+  	editor = "code --wait --new-window"
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]
