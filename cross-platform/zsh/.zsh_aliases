@@ -42,4 +42,4 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Boot up my PC via wakeonlan
-alias bootwindowspc="wakeonlan -i 10.30.29.255 70:85:C2:7D:73:5E"
+alias bootwindowspc="wakeonlan -i 10.30.29.255 74:56:3C:B5:94:0E"
