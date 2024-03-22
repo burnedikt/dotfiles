@@ -19,6 +19,8 @@ NVM_DIR="$HOME/.nvm"
 # Set GNU-sed as the default sed
 GNU_SED_DIR="/usr/local/opt/gnu-sed/libexec/gnubin"
 
+export PYENV_ROOT="$HOME/.pyenv"
+
 # Conditional PATH additions
 for path_candidate in /opt/local/sbin \
   /Applications/Xcode.app/Contents/Developer/usr/bin \
@@ -26,17 +28,13 @@ for path_candidate in /opt/local/sbin \
   $HOME/bin \
   $NVM_DIR \
   $GNU_SED_DIR \
-  $HOME/.pyenv/bin \
+  $PYENV_ROOT/bin \
   /usr/local/bin
 do
   if [ -d ${path_candidate} ]; then
     export PATH=${PATH}:${path_candidate}
   fi
 done
-
-# Pyenv (Python version manager)
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # enable agent forwarding for oh-my-zsh ssh-agent plugin, https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/ssh-agent#instructions
 zstyle :omz:plugins:ssh-agent agent-forwarding on
