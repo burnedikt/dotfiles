@@ -101,6 +101,9 @@ if [[ -f $HOME/.zi-plugins ]]; then
   source "$HOME/.zi-plugins"
 fi
 
+# Force rehash of completions
+autoload -Uz compinit && compinit
+
 # NVM Setup
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm

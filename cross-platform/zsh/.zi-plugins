@@ -28,3 +28,8 @@ zi ice depth=1; zi light romkatv/powerlevel10k
 
 zi ice as'program' pick'bin/*'
 zi light z-shell/zsh-diff-so-fancy
+
+# Docker completions
+docker completion zsh > ~/.zi/completions/_docker
+zi ice as"completion"
+zi snippet ~/.zi/completions/_docker
