@@ -94,7 +94,6 @@ eval "$(direnv hook zsh)"
 # Initialize pyenv
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # Load zi plugins
 if [[ -f $HOME/.zi-plugins ]]; then

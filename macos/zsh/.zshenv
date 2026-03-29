@@ -13,11 +13,16 @@ export MANPAGER='less -X';
 # use VS Code as default editor
 export EDITOR='code -w'
 
+# ensure multithreading doesn't break on macOS and python
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # include nvm
 NVM_DIR="$HOME/.nvm"
 
 # Set GNU-sed as the default sed
 GNU_SED_DIR="/usr/local/opt/gnu-sed/libexec/gnubin"
+# Set GNU-grep as the default grep
+GNU_GREP_DIR="/opt/homebrew/opt/grep/libexec/gnubin"
 
 export PYENV_ROOT="$HOME/.pyenv"
 
@@ -28,6 +33,7 @@ for path_candidate in /opt/local/sbin \
   $HOME/bin \
   $NVM_DIR \
   $GNU_SED_DIR \
+  $GNU_GREP_DIR \
   $PYENV_ROOT/bin \
   /usr/local/bin
 do

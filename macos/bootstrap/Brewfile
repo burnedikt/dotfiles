@@ -17,7 +17,7 @@ brew 'socat'
 brew 'direnv'
 brew 'gnupg'
 brew 'pyenv'
-brew 'pyenv-virtualenv'
+brew 'git-delta'
 
 cask 'visual-studio-code'
 cask 'docker'
